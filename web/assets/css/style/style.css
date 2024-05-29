@@ -11,6 +11,9 @@
    font-family: 'Open Sans', sans-serif;
  }
  
+ *, ::after, ::before {
+   box-sizing: border-box;
+}
  /* 
  1.Vị trí
  2. Kích thước
@@ -44,7 +47,7 @@ select:required:invalid {
 
  }
  body{
-   height: 4200.19px;
+   height: 100% !important;
  }
  /* BEGIN HEADER  */
 #header{
@@ -136,27 +139,57 @@ select:required:invalid {
 #slider{
 
 }
-#slider .slider__img{
+#slider .slider__img {
    width: 100%;
    height: 100vh;
    background-repeat: no-repeat;
    background-size: cover;
    background-position: center center;
    opacity: 0.9;
+   filter: blur(0.65px) brightness(0.8);
 }
 #slider .slider__title {
    position: relative;
-   top: -270px;
+   top: -320px;
    width: 100%;
    text-align: center;
-   font-weight: 800;
-   font-size: 87px;
-   color: #ECF4ED;
-   opacity: 0.8;
+   color: white;
+font-size: 38px;
+font-weight: 550;
+text-shadow: 0px 1px 1px black;
 }
+#slider .slider__title h1{
+   color: white;
+   font-size: 70px;
+   font-weight: 600;
+   text-shadow: 0px 1px 1px black;
+   margin-top: 5px;
+}
+#slider .slider__title span.changecontent::after{
+   content: ' ';
+   color: #f85e33;
+   text-shadow: 1px 1px 1px black;
+   animation: changetext 10s infinite linear;
+ }
+
+ @keyframes changetext{
+   0%{content: "Khai Dinh Tomb";}
+   10%{content: "Hue Citadel";}
+   20%{content: "Tam Giang Lagoon";}
+   30%{content: "Lang Co Beach";}
+   40%{content: "Lap An Lagoon";}
+   50%{content: "Hai Van Pass";}
+   60%{content: "Dong Ba Market";}
+   70%{content: "Bach Ma National Park";}
+   80%{content: "Tu Duc Tomb";}
+   90%{content: "Thien Mu Pagoda";}
+   100%{content: "Hue Festival";}
+ }
+
+
 #slider .slider__btn {
     position: relative;
-    top: -250px;
+    top: -310px;
     width: 100%;
     text-align: center;
 }

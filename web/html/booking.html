@@ -1,4 +1,3 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,42 +23,53 @@
         <div id="header">
 
             <!-- BEGIN NAV  -->
+            <!-- BEGIN NAV -->
             <div id="navbar">
-                <div id="smallnav">
+                <div class="smallnav">
                     <div class="smallnav__left">
                         Royal City, Imperial City, Hue City.
                     </div>
-                    <div class="smallnav__right">
-                        <a href="https://www.facebook.com/ptientr.fb/" class="smallnav__right--icon ti-facebook"></a>
-                        <a href="https://www.instagram.com/18.corner_/" class="smallnav__right--icon ti-instagram"></a>
-                        <a href="gmail.com" class="smallnav__right--icon ti-email"></a>
-                        <a href="#" class="smallnav__right--icon ti-mobile"></a>
+                    <!-- <div class="smallnav__right">
+                            <a href="https://www.facebook.com/ptientr.fb/"
+                                class="smallnav__right--icon ti-facebook"></a>
+                            <a href="https://www.instagram.com/18.corner_/"
+                                class="smallnav__right--icon ti-instagram"></a>
+                            <a href="gmail.com" class="smallnav__right--icon ti-email"></a>
+                            <a href="#" class="smallnav__right--icon ti-mobile"></a>
+                        </div> -->
+                    <div class="smallnav__login">
+                        <a style="border-right: 1px solid white;;" href="">Login</a>
+                        <a href="">Register</a>
                     </div>
                 </div>
-                <div id="bignav">
+                <div class="bignav">
                     <div class="bignav__namecity">
                         <a href="#" style="
-                        text-decoration: none;
-                        color: white;
-                        ">IMPERIAL CITY</a>
+                   text-decoration: none;
+                   color: white;
+                   ">IMPERIAL CITY</a>
                     </div>
                     <div class="bignav__selection">
                         <ul class="bignav__selection--list">
-                           <li>
-                            <a href="/traveltour/index.html">Home</a>
-                           </li>
-                           <li>
-                            <a href="./about.html">About</a>
-                           </li>
-                           <li>
-                            <a href="./news.html">News</a>
-                           </li>
-                           <li>
-                            <a href="./booking.html">Food</a>
-                           </li>
-                           <li>
-                            <a href="./contact.html">Contact</a>
-                           </li>
+                            <li>
+                                <a href="/traveltour/index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="/traveltour/html/about.html">About</a>
+                            </li>
+                            <li>
+                                <a href="/traveltour/html/news.html">News</a>
+                            </li>
+                            <li>
+                                <a href="/traveltour/html/booking.html">Booking</a>
+                            </li>
+                            <li>
+                                <a href="/traveltour/html/contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav--mobile">
+                        <i class="ti-menu"></i>
                     </div>
                     <div class="bignav__search">
                         <i class="bignav__search--icon ti-search"></i>
@@ -67,7 +77,23 @@
                 </div>
             </div>
 
-        </div>
+            <script>
+                window.addEventListener('scroll', function () {
+                    var scrollPosition = window.scrollY || window.pageYOffset;
+                    var smallNav = document.querySelector('.smallnav');
+                    var bigNav = document.querySelector('.bignav');
+                    var smallNavHeight = smallNav.offsetHeight;
+
+                    if (scrollPosition > smallNavHeight) {
+                        smallNav.classList.add('smallnav-fixed');
+                        bigNav.classList.add('bignav_scroll');
+                    } else {
+                        smallNav.classList.remove('smallnav-fixed');
+                        bigNav.classList.remove('bignav_scroll');
+                    }
+                });
+            </script>
+
 
         <!-- BEGIN SLIDER  -->
         <div id="slider">

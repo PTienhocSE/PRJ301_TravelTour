@@ -1,3 +1,12 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 2, 2024, 12:15:14 AM
+    Author     : phuct
+*/
+
 body{
     height: auto !important;
 }
@@ -25,9 +34,9 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
-#booking .booking__right .card.card-item.col-md-3 {
-    width: 23% !important;
-    margin: 11px;
+#booking .booking__right .card {
+    width: 23%;
+    margin: 10px;
 }
 #booking .card-title{
     font-size: 18px;

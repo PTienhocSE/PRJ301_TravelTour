@@ -1,0 +1,75 @@
+body{
+    height: auto !important;
+}
+#header #navbar .bignav {
+    font-weight: 600;
+    display: flex;
+    padding: 20px 120px;
+    text-decoration: none;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    background:#8E9EDC;
+    opacity: 1!important;
+    color: white;
+    z-index: 1;
+}
+#booking {
+    display: flex;
+    top: 85px;
+    padding: 0px 45px;
+    position: relative;
+}
+#booking .booking__right{
+    display: flex;
+    flex-wrap: wrap;
+}
+#booking .booking__right .card {
+    width: 23% !important;
+    margin: 10px;
+}
+#booking .card-title{
+    font-size: 18px;
+}
+#booking p {
+    margin-bottom: 8px;
+    text-align: justify;
+}
+#booking p.card-tourcode {
+    font-weight: bold;
+}
+#booking .card-price {
+    color: red;
+    font-weight: bold;
+}
+#booking .book-btn{
+    align-items: center;
+    display: flex;
+    gap: 0 4px;
+    justify-content: space-around;
+    background-color: #e01600;
+    border-color: #e01600;
+    color: #fff;
+    border-radius: 6px;
+    padding: 3px 8px;
+}
+#booking .book-form {
+    display: flex;
+    justify-content: space-between;
+}
+#booking .detail-btn {
+    border: 1px solid #4d4aef;
+    color: #4d4aef;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 8px;
+}
+#footer {
+    background-color: #8E9EDC;
+    height: 0;
+    display: block;
+    position: relative;
+    top: 1000px;
+}

@@ -7,9 +7,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : phuct
 */
 
-body{
+body {
     height: auto !important;
 }
+
 #header #navbar .bignav {
     font-weight: 600;
     display: flex;
@@ -19,39 +20,65 @@ body{
     position: fixed;
     width: 100%;
     align-items: center;
-    background:#8E9EDC;
-    opacity: 1!important;
+    background: #8E9EDC;
+    opacity: 1 !important;
     color: white;
     z-index: 1;
 }
+
 #booking {
     top: 85px;
     padding: 0px 45px;
     position: relative;
 }
-#booking .booking__form{
+
+#booking .booking__form {
     display: flex;
     flex-wrap: wrap;
 }
+
 #booking .booking__form .card {
     width: 23%;
     margin: 11px;
 }
-#booking .card-title{
-    font-size: 18px;
+
+#booking .card-title {
+    font-size: 16px;
 }
+
+#booking .durationtime {
+    display: flex;
+    justify-content: space-between;
+}
+
 #booking p {
     margin-bottom: 8px;
     text-align: justify;
 }
+
 #booking p.card-tourcode {
     font-weight: bold;
 }
+
 #booking .card-price {
     color: red;
     font-weight: bold;
 }
-#booking .book-btn{
+#booking .order-form {
+    display: flex;
+    justify-content: end;
+    margin-right: 30px;
+}
+#booking .order-form-choose {
+    display: flex;
+}
+#booking select.form-select.form-select-lg {
+    font-size: 16px;
+    text-align: center;
+    padding: 0px;
+}
+
+#booking .book-btn {
     align-items: center;
     display: flex;
     gap: 0 4px;
@@ -62,10 +89,12 @@ body{
     border-radius: 6px;
     padding: 3px 8px;
 }
+
 #booking .book-form {
     display: flex;
     justify-content: space-between;
 }
+
 #booking .detail-btn {
     border: 1px solid #4d4aef;
     color: #4d4aef;
@@ -74,6 +103,7 @@ body{
     padding: 5px 8px;
     border-radius: 8px;
 }
+
 #footer {
     background-color: #8E9EDC;
     height: 0;

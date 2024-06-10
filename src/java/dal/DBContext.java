@@ -9,13 +9,43 @@ public class DBContext {
 
     public DBContext() {
         try {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_TourTravel;encrypt=false;trustServerCertificate=false";
-            String username = "sa";
-            String password = "123"; 
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            connection = DriverManager.getConnection(url, username, password);
-        } catch (ClassNotFoundException | SQLException ex) {
+            connection = getConnection();
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+
+    /* USE BELOW METHOD FOR YOUR DATABASE CONNECTION FOR BOTH SINGLE AND MULTILPE SQL SERVER INSTANCE(s) */
+    /* DO NOT EDIT THE BELOW METHOD, YOU MUST USE ONLY THIS ONE FOR YOUR DATABASE CONNECTION */
+    public Connection getConnection() throws Exception {
+        String url = "jdbc:sqlserver://" + serverName + ":" + portNumber;
+        if (instance != null && !instance.trim().isEmpty()) {
+            url += "\\" + instance;
+        }
+        url += ";databaseName=" + dbName + ";encrypt=false;trustServerCertificate=false";
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        return DriverManager.getConnection(url, userID, password);
+    }
+
+    /* Insert your other code right after this comment */
+    /* Change/update information of your database connection, DO NOT change name of instance variables in this class */
+    private final String serverName = "localhost";
+    private final String dbName = "PRJ301_TourTravel";
+    private final String portNumber = "1433";
+    private final String instance = ""; // LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
+    private final String userID = "sa";
+    private final String password = "123";
+
+    // Example method to close the connection
+    public void closeConnection() {
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 }

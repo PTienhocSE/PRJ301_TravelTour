@@ -49,7 +49,21 @@ INSERT INTO Tour (title, tour_code, departure_place, travel_time, price, duratio
 ('Istanbul Discovery - Hagia Sophia - Grand Bazaar', 'INT-1510', 'Hue City', '09:30', 8500000, '5 days', 'https://lh3.googleusercontent.com/pw/AP1GczMi6u_y0zCQOeL4vNpi2jEuN4EQ_OGcDlcIdtXztOEtPtIwlRPp2KkxF7q9JkSqusVNIqk7HXjnwfG7Qby3Yi7jQ72lh1eWNCF7qq89YGJShunAgP-V3UCsby3P9WimHXEkM1dzyOD5eycTaIJKdfuE=w800-h493-s-no?authuser=0');
 
 
-DELETE FROM Tour Where tour_code='EXT-1403';
-
 USE PRJ301_TourTravel;
 SELECT * FROM Tour;
+
+CREATE TABLE Account (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    isUser INT DEFAULT 0,
+    isAdmin INT DEFAULT 0
+);
+
+INSERT INTO Account (firstName, lastName, email, username, password, phone, isUser, isAdmin)
+VALUES ('Phuc Tien', 'Tran', 'tientpde180866@fpt.edu.vn', 'tientp', '123456', '386188917', 0, 1);
+

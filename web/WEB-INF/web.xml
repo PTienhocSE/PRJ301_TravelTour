@@ -8,6 +8,14 @@
         <servlet-name>BookingServelet</servlet-name>
         <servlet-class>controller.BookingServelet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServelet</servlet-name>
+        <servlet-class>controller.LoginServelet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServelet</servlet-name>
+        <servlet-class>controller.LogoutServelet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servelet</servlet-name>
         <url-pattern>/servelet</url-pattern>
@@ -19,5 +27,13 @@
     <servlet-mapping>
         <servlet-name>BookingServelet</servlet-name>
         <url-pattern>/bookingservelet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServelet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServelet</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -35,7 +35,7 @@
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
                 </div>
                 <div class="bottom-action clearfix">
-                    <p class="text-center small">Don't have an account? <a href="SignUp.jsp">Sign up here!</a></p>
+                    <p class="text-center small">Don't have an account? <a href="/traveltour/html/register.jsp">Sign up here!</a></p>
                 </div>
             </form>
         </div>

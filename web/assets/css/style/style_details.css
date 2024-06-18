@@ -1,0 +1,176 @@
+/*Reset CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  
+    line-height: 1.5;
+ }
+
+ img{
+    width: 100%;
+ }
+ 
+ html {
+   scroll-behavior: smooth;   /*Có hiệu ứng cuộn khi href vào */
+   font-family: 'Open Sans', sans-serif;
+ }
+ 
+ *, ::after, ::before {
+   box-sizing: border-box;
+}
+ /* 
+ 1.Vị trí
+ 2. Kích thước
+ 3. Màu sắc
+ 4. Kiểu dáng (kiểu chữ, hình tròn, vuông,....)
+ */
+ .clear {
+    /* #content .memberlist Xuống phần này để hiểu rõ */
+    clear: both;
+ }
+
+body {
+    height: auto !important;
+}
+
+#header #navbar .bignav {
+    font-weight: 600;
+    display: flex;
+    padding: 20px 120px;
+    text-decoration: none;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    background: #8E9EDC;
+    opacity: 1 !important;
+    color: white;
+    z-index: 1;
+}
+
+#detail {
+    margin: 120px 20px 0px 20px;
+}
+
+.detail__info {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px 0px 60px;
+}
+
+.details__title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #2D4271;
+    margin: 15px 0px;
+}
+
+.detail__price {
+    display: flex;
+    font-size: 24px;
+}
+
+.detail__price--book {
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    padding: 20px;
+    border-radius: 5px;
+    width: 70%;
+    display: block;
+    text-align: center;
+    margin: 0px 0px 10px 0px;
+}
+.detail__price--book:hover{
+    color: white;
+    background-color: rgb(181, 0, 0);
+}
+.detail__price--contact {
+    text-decoration: none;
+    align-items: center;
+    border: 1px solid #2d4271;
+    border-radius: 5px;
+
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    width: 70%;
+    margin: 20px 0px 10px 0px;
+}
+.detail__price--contact:hover{
+    background-color: #2d4271;
+    color: white;
+}
+.detail__img{
+    display: flex;
+    justify-content: center;
+}
+img.imgdetail-left {
+    padding: 10px 10px 0px 10px;
+    height: 96%;
+}
+img.imgdetail-right {
+    padding: 10px 0px 0px 10px;
+}
+.detail__des--right {
+    display: flex;
+}
+.detail__des {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.detail__des--left, .detail__des--right {
+    padding: 10px;
+}
+
+.detail__des--left {
+    flex: 1;
+}
+
+.detail__des--right {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail__des--row {
+    display: flex;
+    flex: 1 1 50%;
+    flex-direction: column;
+}
+
+.detail__des--item {
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.detail__des--item i {
+    margin-right: 10px;
+}
+
+.detail__des--item p {
+    margin: 0;
+}
+
+.detail__des--item p:first-child {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.detail__des--left {
+    flex: 1;
+    padding: 0px 0px 0px 60px;
+}
+.detail__plan {
+    padding: 0px 50px;
+}
+.detail__plan--title {
+    text-align: center;
+    color: red;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 30px;
+}

@@ -1,0 +1,230 @@
+/*Reset CSS */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+img {
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+    /*Có hiệu ứng cuộn khi href vào */
+    font-family: 'Open Sans', sans-serif;
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+/* 
+ 1.Vị trí
+ 2. Kích thước
+ 3. Màu sắc
+ 4. Kiểu dáng (kiểu chữ, hình tròn, vuông,....)
+ */
+.clear {
+    /* #content .memberlist Xuống phần này để hiểu rõ */
+    clear: both;
+}
+
+body {
+    height: auto !important;
+}
+
+#header #navbar .bignav {
+    font-weight: 600;
+    display: flex;
+    padding: 20px 120px;
+    text-decoration: none;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    background: #8E9EDC;
+    opacity: 1 !important;
+    color: white;
+    z-index: 1;
+}
+
+#order {
+    margin: 100px 50px;
+}
+
+.order__card--text {
+    display: flex;
+}
+
+.order__card {
+    display: flex;
+}
+
+.order__card--info.col-md-8 {
+    margin: 0px 0px 0px 20px;
+}
+
+.order__card {
+    display: flex;
+    background-color: #f6f6f6b0;
+    border-radius: 20px;
+}
+
+p.order-card--content {
+    font-weight: 600;
+    margin-left: 6px;
+}
+.order__title {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 20px 0px;
+}
+.order__contact--form {
+    background-color: #f6f6f6b0;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.order__contact--title{
+font-size: 20px;
+    color: #2d4271;
+    font-weight: 500;
+}
+.order__contact--form input{
+    margin-bottom: 15px;
+    width: 100%;
+}
+.order__contact-info{
+    display: flex;
+}
+.group-checkout {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 13px;
+}
+
+.product {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.product-image img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.product-content {
+    margin-left: 20px;
+}
+
+.product-content .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.go-tour {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.go-tour .start,
+.go-tour .end {
+    display: flex;
+    align-items: center;
+}
+
+.go-tour .start i,
+.go-tour .end i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.go-tour .start-content,
+.go-tour .end-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.go-tour .start-content h4,
+.go-tour .end-content h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #007bff;
+}
+
+.go-tour .start-content .time,
+.go-tour .end-content .time {
+    margin: 5px 0 0;
+}
+
+.detail {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.detail table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detail th,
+.detail td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.detail th.l1 {
+    width: 70%;
+}
+
+.detail th.l2 {
+    width: 30%;
+    text-align: right;
+}
+
+.detail .total-booking {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
+
+.detail .t-price {
+    font-size: 16px;
+    color: #555;
+}
+
+.detail .total td {
+    font-weight: bold;
+    font-size: 18px;
+    color: red;
+}
+
+.detail .btn-order {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.detail .btn-order:hover {
+    background-color: rgb(206, 0, 0);
+}

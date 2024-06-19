@@ -135,6 +135,9 @@
                     <br>
                     Phone: <br> <input type="text" value="" name="phone">
                     <br>
+                    <!-- Người dùng sẽ được chọn ngày xuất phát -->
+                    <p class="order__contact--title">Date</p>
+                    <input type="date" value="" name="date">
                     <p class="order__contact--title">Passenger</p>
                     Number of Passenger: <br> <input type="number" value="Number of Passenger" name="number">
                 </form>
@@ -153,7 +156,7 @@
                                 <i class="fal fa-calendar-minus"></i>
                                 <div class="start-content">
                                     <h4>Start the trip</h4>
-                                    <!-- Ngày hiện tại -->
+                                    <!-- Ngày người dùng chọn -->
                                     <p class="time">T6, 21 JUNE 2024</p>
                                     <p class="from"></p>
                                 </div>
@@ -162,7 +165,7 @@
                                 <i class="fal fa-calendar-minus"></i>
                                 <div class="start-content">
                                     <h4>End of trip</h4>
-                                    <!-- Cộng thêm từ ngày duration -->
+                                    <!-- Cộng thêm duration ra end date -->
                                     <p class="time">T2, JUNE 24, 2024</p>
                                     <p class="from"></p>
                                 </div>

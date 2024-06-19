@@ -165,7 +165,7 @@
                                 <i class="fal fa-calendar-minus"></i>
                                 <div class="start-content">
                                     <h4>End of trip</h4>
-                                    <!-- Cộng thêm duration ra end date -->
+                                    <!-- Cộng thêm duration ra end date  -->
                                     <p class="time">T2, JUNE 24, 2024</p>
                                     <p class="from"></p>
                                 </div>

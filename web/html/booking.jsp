@@ -25,7 +25,7 @@
 <%
     // Lấy thông tin người dùng từ session
     Account account = (Account) session.getAttribute("account");
-    String displayName = (account != null) ? account.getUsername() : "Login"; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
+    String displayName = (account != null) ? account.getUsername() : ""; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,27 +54,26 @@
                             Royal City, Imperial City, Hue City.
                         </div>
                         <div class="smallnav__login">
-                            <a style="border-right: 1px solid white;" href=""><%= displayName %></a> <!-- Hiển thị tên người dùng hoặc "Login" -->
+                            <a href=""><%= displayName %></a> <!-- Hiển thị tên người dùng hoặc "Login" -->
                             <% if (account != null) { %> <!-- Kiểm tra nếu người dùng đã đăng nhập -->
                             <a href="/traveltour/html/logout.jsp">Logout</a> <!-- Hiển thị liên kết "Logout" nếu đã đăng nhập -->
                             <% } else { %> <!-- Nếu chưa đăng nhập -->
-                            <a href="/traveltour/login.jsp">Login</a> <!-- Hiển thị liên kết "Login" nếu chưa đăng nhập -->
-                            <a href="/traveltour/register.jsp">Register</a> <!-- Hiển thị liên kết "Register" nếu chưa đăng nhập -->
+                            <a  style="border-right: 1px solid white;" href="/traveltour/html/login.jsp">Login</a>
+                            <a href="/traveltour/html/register.jsp">Register</a>
                             <% } %>
                         </div>
-
                     </div>
                     <div class="bignav">
                         <div class="bignav__namecity">
-                            <a href="#" style="text-decoration: none; color: white;">IMPERIAL CITY</a>
+                            <a href="/traveltour/index.html" style="text-decoration: none; color: white;">IMPERIAL CITY</a>
                         </div>
                         <div class="bignav__selection">
                             <ul class="bignav__selection--list">
                                 <li><a href="/traveltour/index.html">Home</a></li>
-                                <li><a href="/traveltour/html/about.html">About</a></li>
-                                <li><a href="/traveltour/html/news.html">News</a></li>
-                                <li><a href="/traveltour/booking.html">Booking</a></li>
-                                <li><a href="/traveltour/html/contact.html">Contact</a></li>
+                                <li><a href="/traveltour/html/about.jsp">About</a></li>
+                                <!--<li><a href="/traveltour/html/news.jsp">News</a></li>-->
+                                <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
+                                <!--<li><a href="/traveltour/html/contact.jsp">Contact</a></li>-->
                             </ul>
                         </div>
                         <div class="nav--mobile">

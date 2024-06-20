@@ -30,6 +30,26 @@
    left: 0;
    right: 0;
 }
+.slider img {
+    transition: opacity 0.5s, transform 0.5s;
+    position: absolute;
+}
+
+#content {
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 20px;
+}
+
+.slider {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    /* Make sure slider takes full viewport height */
+    overflow: hidden;
+    /* Hide images when they go out of slider */
+}
 
 /*select có value="" nghĩa là nó có giá trị không hợp lệ thì màu nâu được hiển thị*/
 select:required:invalid {

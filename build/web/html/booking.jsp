@@ -142,8 +142,8 @@
                                 </div>
                                 <p class="card-price"><%= rs.getString("price") %> vnd</p>
                                 <div class="book-form">
-                                    <input class="book-btn" type="submit" value="Book now">
-                                    <a class="detail-btn" href="">View details</a>
+                                    <a style="text-decoration: none;" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
+                                    <a class="detail-btn" href="/traveltour/html/details.jsp">View details</a>
                                 </div>
                             </form>
                         </div>

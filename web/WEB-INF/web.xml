@@ -16,6 +16,10 @@
         <servlet-name>RegisterServelet</servlet-name>
         <servlet-class>controller.RegisterServelet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BookingDetailsServlet</servlet-name>
+        <servlet-class>controller.BookingDetailsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BookingServelet</servlet-name>
         <url-pattern>/bookingservelet</url-pattern>
@@ -31,5 +35,9 @@
     <servlet-mapping>
         <servlet-name>RegisterServelet</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookingDetailsServlet</servlet-name>
+        <url-pattern>/BookingDetailsServlet</url-pattern>
     </servlet-mapping>
 </web-app>

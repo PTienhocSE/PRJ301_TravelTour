@@ -123,7 +123,7 @@
                     <div class="card card-item col-md-3">
                         <img class="card-img-top" src="<%= rs.getString("image_path") %>" alt="Title" />
                         <div class="card-body">
-                            <form action="">
+                            <form action="BookingDetailsServlet" method="POST">
                                 <h4 class="card-title"><%= rs.getString("title") %></h4>
                                 <p class="card-text">Tour code:</p>
                                 <p class="card-tourcode ti-ticket"><%= rs.getString("tour_code") %></p>
@@ -141,7 +141,15 @@
                                 </div>
                                 <p class="card-price"><%= rs.getString("price") %> vnd</p>
                                 <div class="book-form">
-                                    <input class="book-btn" type="submit" value="Book now">
+                                    <input type="hidden" name="tourCode" value="<%= rs.getString("tour_code") %>">
+                                    <input type="hidden" name="title" value="<%= rs.getString("title") %>">
+                                    <input type="hidden" name="price" value="<%= rs.getString("price") %>">
+                                    <input type="hidden" name="duration" value="<%= rs.getString("duration") %>">
+                                    <input type="hidden" name="travelTime" value="<%= rs.getString("travel_time") %>">
+                                    <input type="hidden" name="departurePlace" value="<%= rs.getString("departure_place") %>">
+                                    <input type="hidden" name="imagePath" value="<%= rs.getString("image_path") %>">
+                                    <button type="submit" class="btn btn-primary">Book Now</button>
+                                    
                                     <a class="detail-btn" href="">View details</a>
                                 </div>
                             </form>

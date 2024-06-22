@@ -141,16 +141,10 @@
                                 </div>
                                 <p class="card-price"><%= rs.getString("price") %> vnd</p>
                                 <div class="book-form">
-                                    <input type="hidden" name="tourCode" value="<%= rs.getString("tour_code") %>">
-                                    <input type="hidden" name="title" value="<%= rs.getString("title") %>">
-                                    <input type="hidden" name="price" value="<%= rs.getString("price") %>">
-                                    <input type="hidden" name="duration" value="<%= rs.getString("duration") %>">
-                                    <input type="hidden" name="travelTime" value="<%= rs.getString("travel_time") %>">
-                                    <input type="hidden" name="departurePlace" value="<%= rs.getString("departure_place") %>">
-                                    <input type="hidden" name="imagePath" value="<%= rs.getString("image_path") %>">
-                                    <button type="submit" class="btn btn-primary">Book Now</button>
                                     
-                                    <a class="detail-btn" href="">View details</a>
+                                    <a style="text-decoration: none" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
+                                    
+                                    <a class="detail-btn" href="/traveltour/html/details.jsp">View details</a>
                                 </div>
                             </form>
                         </div>

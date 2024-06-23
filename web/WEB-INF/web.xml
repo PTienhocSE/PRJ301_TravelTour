@@ -21,7 +21,7 @@
         <servlet-class>controller.BookingDetailsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>BookingDetailsServlet</servlet-name>
+        <servlet-name>BookingDetailServlet</servlet-name>
         <url-pattern>/details</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

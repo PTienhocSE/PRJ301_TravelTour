@@ -1,99 +1,73 @@
-
 package controller;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-/**
- *
- * @author TUF
- */
+@WebServlet(name = "BookingDetailsServlet", urlPatterns = {"/details"})
 public class BookingDetailsServlet extends HttpServlet {
-     private static final long serialVersionUID = 1L;
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet BookingDetailsServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet BookingDetailsServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+    private static final long serialVersionUID = 1L;
+
+    // JDBC URL, username, and password
+    private static final String url = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_TourTravel;encrypt=false;trustServerCertificate=false";
+    private static final String user = "sa";
+    private static final String password = "123";
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Get tourCode from request parameter (you should validate and sanitize this input)
+        String tourCode = request.getParameter("tourCode");
+
+        // Validate and sanitize tourCode parameter
+        if (tourCode == null || tourCode.isEmpty()) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing tourCode parameter");
+            return;
+        }
+
+        // Retrieve tour details from the database
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            String sql = "SELECT * FROM Tour WHERE tourCode = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, tourCode);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    if (rs.next()) {
+                        // Set attributes for forwarding to JSP
+                        request.setAttribute("tourCode", rs.getString("tourCode"));
+                        request.setAttribute("title", rs.getString("title"));
+                        request.setAttribute("price", rs.getString("price"));
+                        request.setAttribute("duration", rs.getString("duration"));
+                        request.setAttribute("travelTime", rs.getString("travelTime"));
+                        request.setAttribute("imagePath", rs.getString("imagePath"));
+                        request.setAttribute("departurePlace", rs.getString("departurePlace"));
+
+                        // Forward to details.jsp
+                        request.getRequestDispatcher("/traveltour/html/details.jsp").forward(request, response);
+                    } else {
+                        // Handle case where no tour is found with the given tourCode
+                        response.sendError(HttpServletResponse.SC_NOT_FOUND, "Tour not found");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new ServletException("Database access error", e);
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    // doPost method remains as you have it, handling form submissions
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Process form data, if any (not shown in your snippet)
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String tourCode = request.getParameter("tourCode");
-        String title = request.getParameter("title");
-        String price = request.getParameter("price");
-        String duration = request.getParameter("duration");
-        String travelTime = request.getParameter("travelTime");
-        String departurePlace = request.getParameter("departurePlace");
-        String imagePath = request.getParameter("imagePath");
-
-        // Set attributes in request scope to pass to bookingdetails.jsp
-        request.setAttribute("tourCode", tourCode);
-        request.setAttribute("title", title);
-        request.setAttribute("price", price);
-        request.setAttribute("duration", duration);
-        request.setAttribute("travelTime", travelTime);
-        request.setAttribute("departurePlace", departurePlace);
-        request.setAttribute("imagePath", imagePath);
-
-        request.getRequestDispatcher("/bookingdetails.jsp").forward(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
+    // getServletInfo method remains as you have it
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+        return "Booking Details Servlet";
+    }
 }

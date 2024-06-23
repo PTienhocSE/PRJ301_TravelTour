@@ -141,11 +141,6 @@
                                 </div>
                                 <p class="card-price"><%= rs.getString("price") %> vnd</p>
                                 <div class="book-form">
-<<<<<<< HEAD
-                                    <a style="text-decoration: none;" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
-                                    <a class="detail-btn" href="/traveltour/html/details.jsp">View details</a>
-=======
-                                    <!-- Link to book -->
                                     <a style="text-decoration: none" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
 
                                     <!-- Form to view details -->
@@ -161,7 +156,6 @@
                                         <!-- Button to submit the form -->
                                         <button class="detail-btn" type="submit">View details</button>
                                     </form>
->>>>>>> a10afca65c2a4ed1927e22b29bf8ab6e9a08f0d4
                                 </div>
 
                         </div>

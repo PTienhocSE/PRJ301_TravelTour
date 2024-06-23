@@ -123,7 +123,11 @@
                         <p style="color: red; font-weight: 700;">7990000 vnd</p>
                         /pass
                     </div>
+<<<<<<< HEAD
                     <a class="detail__price--book" href=""><i class="ti-shopping-cart"> Booking now</i></a>
+=======
+                    <a class="detail__price--book" href="/traveltour/html/order.jsp"><i class="ti-shopping-cart"> Booking now</i></a>
+>>>>>>> ThaiDTD
                     <a class="detail__price--contact" href="#">Contact us</a>
                 </div>
                 </div>

@@ -141,7 +141,11 @@
                                 </div>
                                 <p class="card-price"><%= rs.getString("price") %> vnd</p>
                                 <div class="book-form">
+<<<<<<< HEAD
                                     <a style="text-decoration: none" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
+=======
+                                    <a style="text-decoration: none;" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
+>>>>>>> ThaiDTD
                                     <a class="detail-btn" href="/traveltour/html/details.jsp">View details</a>
                                 </div>
                             </form>

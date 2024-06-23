@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*" %>
+<%@ page import="model.Account" %>
+
 <%
     String url = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_TourTravel;encrypt=false;trustServerCertificate=false";
     String user = "sa";
@@ -19,14 +21,12 @@
     } catch (Exception e) {
         e.printStackTrace();
     }
-%>
-<%@ page import="java.sql.*, java.util.*" %>
-<%@ page import="model.Account" %> <!-- Import model Account -->
-<%
-    // Lấy thông tin người dùng từ session
+
+    // Get account information from session
     Account account = (Account) session.getAttribute("account");
-    String displayName = (account != null) ? account.getUsername() : ""; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
+    String displayName = (account != null) ? account.getUsername() : "Login";
 %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/traveltour/assets/css/style/style_booking.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/traveltour/assets/font/themify-icons/themify-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -54,11 +54,11 @@
                             Royal City, Imperial City, Hue City.
                         </div>
                         <div class="smallnav__login">
-                            <a href=""><%= displayName %></a> <!-- Hiển thị tên người dùng hoặc "Login" -->
-                            <% if (account != null) { %> <!-- Kiểm tra nếu người dùng đã đăng nhập -->
-                            <a href="/traveltour/html/logout.jsp">Logout</a> <!-- Hiển thị liên kết "Logout" nếu đã đăng nhập -->
-                            <% } else { %> <!-- Nếu chưa đăng nhập -->
-                            <a  style="border-right: 1px solid white;" href="/traveltour/html/login.jsp">Login</a>
+                            <a href="#"><%= displayName %></a>
+                            <% if (account != null) { %>
+                            <a href="/traveltour/html/logout.jsp">Logout</a>
+                            <% } else { %>
+                            <a style="border-right: 1px solid white;" href="/traveltour/html/login.jsp">Login</a>
                             <a href="/traveltour/html/register.jsp">Register</a>
                             <% } %>
                         </div>
@@ -71,9 +71,7 @@
                             <ul class="bignav__selection--list">
                                 <li><a href="/traveltour/index.html">Home</a></li>
                                 <li><a href="/traveltour/html/about.jsp">About</a></li>
-                                <!--<li><a href="/traveltour/html/news.jsp">News</a></li>-->
                                 <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
-                                <!--<li><a href="/traveltour/html/contact.jsp">Contact</a></li>-->
                             </ul>
                         </div>
                         <div class="nav--mobile">
@@ -123,41 +121,37 @@
                     <div class="card card-item col-md-3">
                         <img class="card-img-top" src="<%= rs.getString("image_path") %>" alt="Title" />
                         <div class="card-body">
-                            <form action="BookingDetailsServlet" method="POST">
-                                <h4 class="card-title"><%= rs.getString("title") %></h4>
-                                <p class="card-text">Tour code:</p>
-                                <p class="card-tourcode ti-ticket"><%= rs.getString("tour_code") %></p>
-                                <p class="card-text">Place of departure:</p>
-                                <p style="font-weight: bold;"><%= rs.getString("departure_place") %></p>
-                                <div class="durationtime">
-                                    <div class="durationtime-time">
-                                        <p class="card-text">Travel time:</p>
-                                        <p style="font-weight: bold;"><%= rs.getString("travel_time") %></p>
-                                    </div>
-                                    <div class="duration-day">
-                                        <p class="card-text">Duration:</p>
-                                        <p style="font-weight: bold;"><%= rs.getString("duration") %></p>
-                                    </div>
+                            <h4 class="card-title"><%= rs.getString("title") %></h4>
+                            <p class="card-text">Tour code:</p>
+                            <p class="card-tourcode ti-ticket"><%= rs.getString("tour_code") %></p>
+                            <p class="card-text">Place of departure:</p>
+                            <p style="font-weight: bold;"><%= rs.getString("departure_place") %></p>
+                            <div class="durationtime">
+                                <div class="durationtime-time">
+                                    <p class="card-text">Travel time:</p>
+                                    <p style="font-weight: bold;"><%= rs.getString("travel_time") %></p>
                                 </div>
-                                <p class="card-price"><%= rs.getString("price") %> vnd</p>
-                                <div class="book-form">
-                                    <a style="text-decoration: none" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
-
-                                    <!-- Form to view details -->
-                                    <form action="/details" method="get">
-                                        <input type="hidden" name="tourCode" value="<%= rs.getString("tour_code") %>">
-                                        <input type="hidden" name="title" value="<%= rs.getString("title") %>">
-                                        <input type="hidden" name="price" value="<%= rs.getString("price") %>">
-                                        <input type="hidden" name="duration" value="<%= rs.getString("duration") %>">
-                                        <input type="hidden" name="travelTime" value="<%= rs.getString("travel_time") %>">
-                                        <input type="hidden" name="imagePath" value="<%= rs.getString("image_path") %>">
-                                        <input type="hidden" name="departurePlace" value="<%= rs.getString("departure_place") %>">
-
-                                        <!-- Button to submit the form -->
-                                        <button class="detail-btn" type="submit">View details</button>
-                                    </form>
+                                <div class="duration-day">
+                                    <p class="card-text">Duration:</p>
+                                    <p style="font-weight: bold;"><%= rs.getString("duration") %></p>
                                 </div>
+                            </div>
+                            <p class="card-price"><%= rs.getString("price") %> vnd</p>
+                            <div class="book-form">
+                                <a style="text-decoration: none" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
 
+                                <!-- Form to view details -->
+                                <form action="/traveltour/DetailsServlet" method="GET">
+                                    <input type="hidden" name="tourCode" value="<%= rs.getString("tour_code") %>">
+                                    <input type="hidden" name="title" value="<%= rs.getString("title") %>">
+                                    <input type="hidden" name="price" value="<%= rs.getString("price") %>">
+                                    <input type="hidden" name="duration" value="<%= rs.getString("duration") %>">
+                                    <input type="hidden" name="travelTime" value="<%= rs.getString("travel_time") %>">
+                                    <input type="hidden" name="imagePath" value="<%= rs.getString("image_path") %>">
+                                    <input type="hidden" name="departurePlace" value="<%= rs.getString("departure_place") %>">
+                                    <button class="detail-btn" type="submit">View details</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <% } %>

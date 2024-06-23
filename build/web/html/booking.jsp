@@ -123,7 +123,7 @@
                     <div class="card card-item col-md-3">
                         <img class="card-img-top" src="<%= rs.getString("image_path") %>" alt="Title" />
                         <div class="card-body">
-                            <form action="BookingDetailsServlet" method="POST">
+                            <form action="">
                                 <h4 class="card-title"><%= rs.getString("title") %></h4>
                                 <p class="card-text">Tour code:</p>
                                 <p class="card-tourcode ti-ticket"><%= rs.getString("tour_code") %></p>
@@ -142,28 +142,13 @@
                                 <p class="card-price"><%= rs.getString("price") %> vnd</p>
                                 <div class="book-form">
 <<<<<<< HEAD
-                                    <a style="text-decoration: none;" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
-                                    <a class="detail-btn" href="/traveltour/html/details.jsp">View details</a>
-=======
-                                    <!-- Link to book -->
                                     <a style="text-decoration: none" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
-
-                                    <!-- Form to view details -->
-                                    <form action="/details" method="get">
-                                        <input type="hidden" name="tourCode" value="<%= rs.getString("tour_code") %>">
-                                        <input type="hidden" name="title" value="<%= rs.getString("title") %>">
-                                        <input type="hidden" name="price" value="<%= rs.getString("price") %>">
-                                        <input type="hidden" name="duration" value="<%= rs.getString("duration") %>">
-                                        <input type="hidden" name="travelTime" value="<%= rs.getString("travel_time") %>">
-                                        <input type="hidden" name="imagePath" value="<%= rs.getString("image_path") %>">
-                                        <input type="hidden" name="departurePlace" value="<%= rs.getString("departure_place") %>">
-
-                                        <!-- Button to submit the form -->
-                                        <button class="detail-btn" type="submit">View details</button>
-                                    </form>
->>>>>>> a10afca65c2a4ed1927e22b29bf8ab6e9a08f0d4
+=======
+                                    <a style="text-decoration: none;" class="book-btn" href="/traveltour/html/order.jsp">Book now</a>
+>>>>>>> ThaiDTD
+                                    <a class="detail-btn" href="/traveltour/html/details.jsp">View details</a>
                                 </div>
-
+                            </form>
                         </div>
                     </div>
                     <% } %>

@@ -51,7 +51,6 @@
     </head>
     <body>
         <div id="header">
-<<<<<<< HEAD
                 <div id="navbar">
                     <div class="smallnav">
                         <div class="smallnav__left">
@@ -124,123 +123,32 @@
                         <p style="color: red; font-weight: 700;">7990000 vnd</p>
                         /pass
                     </div>
+<<<<<<< HEAD
+                    <a class="detail__price--book" href=""><i class="ti-shopping-cart"> Booking now</i></a>
+=======
                     <a class="detail__price--book" href="/traveltour/html/order.jsp"><i class="ti-shopping-cart"> Booking now</i></a>
+>>>>>>> ThaiDTD
                     <a class="detail__price--contact" href="#">Contact us</a>
                 </div>
                 </div>
                 <div class="detail__img">
                     <div class="detail__img--left col-md-8">
                     <!-- Change img from database -->
-=======
-            <div id="navbar">
-                <div class="smallnav">
-                    <div class="smallnav__left">
-                        Royal City, Imperial City, Hue City.
-                    </div>
-                    <div class="smallnav__login">
-                        <a href=""><%= displayName %></a> <!-- Hiển thị tên người dùng hoặc "Login" -->
-                        <% if (account != null) { %> <!-- Kiểm tra nếu người dùng đã đăng nhập -->
-                        <a href="/traveltour/html/logout.jsp">Logout</a> <!-- Hiển thị liên kết "Logout" nếu đã đăng nhập -->
-                        <% } else { %> <!-- Nếu chưa đăng nhập -->
-                        <a  style="border-right: 1px solid white;" href="/traveltour/html/login.jsp">Login</a>
-                        <a href="/traveltour/html/register.jsp">Register</a>
-                        <% } %>
-                    </div>
-                </div>
-                <div class="bignav">
-                    <div class="bignav__namecity">
-                        <a href="/traveltour/index.html" style="text-decoration: none; color: white;">IMPERIAL CITY</a>
-                    </div>
-                    <div class="bignav__selection">
-                        <ul class="bignav__selection--list">
-                            <li><a href="/traveltour/index.html">Home</a></li>
-                            <li><a href="/traveltour/html/about.jsp">About</a></li>
-                            <!--<li><a href="/traveltour/html/news.jsp">News</a></li>-->
-                            <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
-                            <!--<li><a href="/traveltour/html/contact.jsp">Contact</a></li>-->
-                        </ul>
-                    </div>
-                    <div class="nav--mobile">
-                        <i class="ti-menu"></i>
-                    </div>
-                    <div class="bignav__search">
-                        <i class="bignav__search--icon ti-search"></i>
-                    </div>
-                </div>
-            </div>
-            <script>
-                window.addEventListener('scroll', function () {
-                    var scrollPosition = window.scrollY || window.pageYOffset;
-                    var smallNav = document.querySelector('.smallnav');
-                    var bigNav = document.querySelector('.bignav');
-                    var smallNavHeight = smallNav.offsetHeight;
-
-                    if (scrollPosition > smallNavHeight) {
-                        smallNav.classList.add('smallnav-fixed');
-                        bigNav.classList.add('bignav_scroll');
-                    } else {
-                        smallNav.classList.remove('smallnav-fixed');
-                        bigNav.classList.remove('bignav_scroll');
-                    }
-                });
-            </script>
-        </div>
-<!--        <form action="BookingDetailsServlet" method="POST">-->
-            <div id="detail">
-                <div class="detail__info">
-                    <div class="detail-left col-md-7">
-
-                        <!-- Change tourcode from database -->
-                        <div class="detail__tourcode">
-                            <i class="ti-ticket"></i>
-                            <%= request.getAttribute("tourCode") %>
-                        </div>
-                        <!-- Change title from database -->
-                        <div class="details__title">
-                            <%= request.getAttribute("titles") %>
-                        </div>
-                    </div>
-                    <div class="detail-right col-md-3">
-                        <!-- Change price from database -->
-                        <div class="detail__price">
-                            <p style="color: red; font-weight: 700;"><%= request.getAttribute("price") %> vnd</p>
-                            /pass
-                        </div>
-                        <a class="detail__price--book" href=""><i class="ti-shopping-cart"> Booking now</i></a>
-                        <a class="detail__price--contact" href="#">Contact us</a>
-                    </div>
-                </div>
-                <div class="detail__img">
-                    <div class="detail__img--left col-md-8">
-                        <!-- Change img from database -->
->>>>>>> a10afca65c2a4ed1927e22b29bf8ab6e9a08f0d4
                         <img class="imgdetail-left" src="https://lh3.googleusercontent.com/pw/AP1GczPAq58-6L8ZQ1M_1vVSPfyrmjgDGtgVuKfluqNXe6mItIRHobGHSKwB6_-YIeUy-mFaRv6Ca6jteJ-mf9n0uEWE8HZ9Jal7x2POLKndQ_S0IGyF86XdBR4mWMx_ws25SsdC8r91fkra9_gXoOmBSPkB=w1130-h749-s-no-gm?authuser=0" alt="">
                     </div>
                     <!-- Defalt img not change -->
                     <div class="detail__img--right col-md-3">
-<<<<<<< HEAD
                     <img class="imgdetail-right" src="https://lh3.googleusercontent.com/pw/AP1GczM3dKi3W960UWWfvbMXqGEBVz4Lrc6E8oBcpAqyDbk7SsZBNPwGAEmVw54MAGkdHMaS-kZHBvfEP8aNmajVDcig6GexITbVgOsMvHicK306ctqeYA26nEsH96QD1Q4t3W8nKDH4EDapWxKQD7ruCzPl=w787-h660-s-no?authuser=0" alt="default-img">
                     <img class="imgdetail-right" src="https://lh3.googleusercontent.com/pw/AP1GczMXbIXXArziFYwEF9jvL1o-RhhOJ5QBjcV-1dW1J6DC2CL2Ur3riE2QJqGEy22X6faJ0XjWrjN_LERMj96NCg8iwsEjFwM4sHcEXz5oqETyI45ULAYsvUJ0OoIdoVGx8wdng37UvIQZ8LVA4Rs-QnqI=w787-h660-s-no?authuser=0" alt="default-img">    
-=======
-                        <img class="imgdetail-right" src="https://lh3.googleusercontent.com/pw/AP1GczM3dKi3W960UWWfvbMXqGEBVz4Lrc6E8oBcpAqyDbk7SsZBNPwGAEmVw54MAGkdHMaS-kZHBvfEP8aNmajVDcig6GexITbVgOsMvHicK306ctqeYA26nEsH96QD1Q4t3W8nKDH4EDapWxKQD7ruCzPl=w787-h660-s-no?authuser=0" alt="default-img">
-                        <img class="imgdetail-right" src="https://lh3.googleusercontent.com/pw/AP1GczMXbIXXArziFYwEF9jvL1o-RhhOJ5QBjcV-1dW1J6DC2CL2Ur3riE2QJqGEy22X6faJ0XjWrjN_LERMj96NCg8iwsEjFwM4sHcEXz5oqETyI45ULAYsvUJ0OoIdoVGx8wdng37UvIQZ8LVA4Rs-QnqI=w787-h660-s-no?authuser=0" alt="default-img">    
->>>>>>> a10afca65c2a4ed1927e22b29bf8ab6e9a08f0d4
                     </div>
                 </div>
                 <div class="detail__des">
                     <div class="detail__des--left col-md-6">
                         <!-- Change from database -->
-<<<<<<< HEAD
                         <p>Duration <p style="font-weight: 700;">1 day</p></p>
                         <p>Time travel <p style="font-weight: 700;">6:00</p></p>
                         <p>Departure Point: <p style="font-weight: 700;">Hue City</p></p>
                     </div>
-=======
-                        <p>Duration <p style="font-weight: 700;"><%= request.getAttribute("duration") %></p></p>
-                        <p>Time travel <p style="font-weight: 700;"><%= request.getAttribute("travelTime") %></p></p>
-                        <p>Departure Point: <p style="font-weight: 700;"><%= request.getAttribute("departurePlace") %></p></p>
-                    </div>                    
->>>>>>> a10afca65c2a4ed1927e22b29bf8ab6e9a08f0d4
                     <div class="detail__des--right col-md-6">
                         <div class="detail__des--row col-md-6">
                             <div class="detail__des--item">
@@ -275,7 +183,6 @@
                     <div>
                         <h3 id="day-00">Day 1 - HO CHI MINH CITY - DA NANG - HUE (Lunch, Dinner)</h3>
                         <div class="excerpt"><span class="line"></span>
-<<<<<<< HEAD
                           <div>
                       
                             <title></title>
@@ -335,67 +242,6 @@
                         </div>
                       </div>      
                       <div>
-=======
-                            <div>
-
-                                <title></title>
-
-                                <p style="text-align:justify">
-                                    Guests gather at the Domestic Departure Terminal, Tan Son Nhat Airport, where Vietravel guides will assist them with check-in procedures for their flight to <strong>Da Nang</strong>. Upon arrival at Da Nang airport, guests will start their tour with a visit to:
-                                    <br><br>
-                                    <strong>- Son Tra Peninsula and Linh Ung Pagoda:</strong> home to the tallest statue of Avalokitesvara Bodhisattva in Vietnam.
-                                    <br><br>
-                                    <strong>- Lap An Lagoon:</strong> enjoy the view of clouds floating over the mountain peaks surrounding the lagoon.
-                                    <br><br>
-                                    <strong>- VietPearl Pearl:</strong> a familiar destination for the people of Hue, known for sourcing high-quality pearls and offering the most exquisite products for guests to experience a touch of luxury.
-                                    <br><br>
-                                    <strong>- The Imperial City (Dai Noi):</strong> the ancient palace of the 13 Nguyen dynasty emperors, featuring attractions like Ngo Mon Gate, Thai Hoa Palace, Forbidden Purple City, The Mieu Temple, Hien Lam Pavilion, Nine Dynastic Urns, and the Hue Royal Antiquities Museum.
-                                    <br><br>
-                                    <strong>- Thien Mu Pagoda:</strong> considered the symbol of Hue, this pagoda preserves many valuable artifacts, both historical and artistic.
-                                    <br><br>
-                                    <strong>- Night Stroll:</strong> Experience the vibrant night atmosphere of Hue at the walking street along the Perfume River, harmonizing with the shimmering Truong Tien Bridge. Enjoy street food like bánh mì lọc (Hue-style sandwich) and Hue sweet soup, and observe dragon boats floating on the river with the echo of Hue folk songs. Explore the bustling nightlife of the Western Quarter with numerous busy restaurants and souvenir shops.
-                                    <br><br>
-                                    The group will return to the hotel and check in for a free evening.
-                                </p>
-
-                                <p style="text-align:justify"><strong>Overnight in Hue.</strong></p>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div>
-                        <h3 id="day-01">Day 2 - HUE - LA VANG - PHONG NHA CAVE (Breakfast, Lunch, Dinner)</h3>
-                        <div class="excerpt"><span class="line"></span>
-                            <div>
-
-                                <title></title>
-
-                                <p style="text-align:justify">
-                                    Enjoy breakfast at the hotel. Guests will depart early for Quang Binh, with a stop to visit:
-                                    <br><br>
-                                    <strong>- La Vang Holy Land:</strong> one of the four minor basilicas of La Vang in Vietnam.
-                                    <br><br>
-                                    <em><span style="color:#c0392b"><strong>(<u>Note:</u> From August 8 to August 16 each year, La Vang Holy Land hosts the annual "Our Lady of La Vang Pilgrimage Festival," so tours during this period will not visit La Vang.)</strong></span></em>
-                                </p>
-
-                                <p style="text-align:justify">
-                                    <strong>- Phong Nha Cave:</strong> located within the Phong Nha - Ke Bang World Natural Heritage site, considered a fairyland with the longest underground river and limestone mountain system in the world.
-                                    <br><br>
-                                    The group will return to Hue around 20:00, and guests will have free time to rest.
-                                </p>
-
-                                <p style="text-align:justify">
-                                    <strong>Overnight in Hue.</strong>
-                                    <br><br>
-                                    <span style="color:#c0392b"><em><strong><u>Note:</u> If guests choose not to go to Quang Binh, they can stay in Hue for free sightseeing and relaxation. Please inform us of your request before final payment to receive a discount of 400,000 VND per adult. Guests will be responsible for their own lunch and dinner costs and entrance fees to other attractions in the Ancient Capital.</strong></em></span>
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>      
-                    <div>
->>>>>>> a10afca65c2a4ed1927e22b29bf8ab6e9a08f0d4
                         <h3 id="day-02">Day 3 - HUE - DANANG - BA NA HILLS - HOI AN ANCIENT TOWN (Breakfast, afternoon)</h3>
                         <div class="excerpt"><span class="line"></span>
                             <div>
@@ -421,7 +267,6 @@
                                 <p style="text-align:justify">Transfer to Danang airport for your flight back to Ho Chi Minh City. Farewell and end of the tour at Tan Son Nhat airport.</p>
                                 <p style="text-align:center">-----------------o0o0o0o0o--------------</p>
                                 <p style="text-align:justify"><strong>Notes:</strong><br>
-<<<<<<< HEAD
                                 - The itinerary may change depending on actual conditions.<br>
                                 - Sightseeing activities (beach bathing, flower viewing, experiences, etc.) are highly weather-dependent, which is beyond our control.<br>
                                 - Hotels may be located further from the city center during peak seasons.</p>
@@ -433,18 +278,4 @@
                 </div>                
             </div>
     </body>
-=======
-                                    - The itinerary may change depending on actual conditions.<br>
-                                    - Sightseeing activities (beach bathing, flower viewing, experiences, etc.) are highly weather-dependent, which is beyond our control.<br>
-                                    - Hotels may be located further from the city center during peak seasons.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-<!--        </form>-->
-    </div>
-</body>
->>>>>>> a10afca65c2a4ed1927e22b29bf8ab6e9a08f0d4
 </html>

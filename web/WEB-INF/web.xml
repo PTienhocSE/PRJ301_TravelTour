@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
+        <servlet-name>Servelet</servlet-name>
+        <servlet-class>controller.Servelet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>BookingServelet</servlet-name>
         <servlet-class>controller.BookingServelet</servlet-class>
     </servlet>
@@ -12,17 +16,13 @@
         <servlet-name>LogoutServelet</servlet-name>
         <servlet-class>controller.LogoutServelet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>RegisterServelet</servlet-name>
-        <servlet-class>controller.RegisterServelet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>BookingDetailsServlet</servlet-name>
-        <servlet-class>controller.BookingDetailsServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
-        <servlet-name>BookingDetailServlet</servlet-name>
-        <url-pattern>/details</url-pattern>
+        <servlet-name>Servelet</servlet-name>
+        <url-pattern>/servelet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servelet</servlet-name>
+        <url-pattern>/traveltour</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BookingServelet</servlet-name>
@@ -35,9 +35,5 @@
     <servlet-mapping>
         <servlet-name>LogoutServelet</servlet-name>
         <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegisterServelet</servlet-name>
-        <url-pattern>/register</url-pattern>
     </servlet-mapping>
 </web-app>

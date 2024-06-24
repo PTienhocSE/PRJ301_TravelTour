@@ -275,8 +275,4 @@
                 </div>                
             </div>
     </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> de70d771a6df499ed16a696fe3d8884b82dfc4e3

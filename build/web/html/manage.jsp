@@ -67,7 +67,7 @@
                             <ul class="bignav__selection--list">
                                 <li><a href="/traveltour/index.jsp">Home</a></li>
                                 <li><a href="/traveltour/html/about.jsp">About</a></li>
-                                <li><a href="/traveltour/html/news.jsp">News</a></li>
+                                <!--<li><a href="/traveltour/html/news.jsp">News</a></li>-->
                                 <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
                                 <li><a href="/traveltour/manage">Manage</a></li>
                             </ul>

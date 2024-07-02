@@ -70,7 +70,6 @@
                                 <c:if test ="${not empty sessionScope.username && sessionScope.role =='admin'}">
                                     <li class="manage"><a href="/traveltour/manage" style="color:white; text-decoration: none">Manage</a></li>
                                 </c:if>
-
                             </ul>
                         </div>
                         <div class="nav--mobile">

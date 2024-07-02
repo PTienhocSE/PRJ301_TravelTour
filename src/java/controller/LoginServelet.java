@@ -47,7 +47,7 @@ public class LoginServelet extends HttpServlet {
                 session.setAttribute("role", "admin");
                 response.sendRedirect("/traveltour/html/booking.jsp");
             } else {
-                session.setAttribute("role", "customer");
+                session.setAttribute("role", "user");
                 response.sendRedirect("/traveltour/html/booking.jsp");
             }
         }

@@ -69,12 +69,14 @@
                         </div>
                         <div class="bignav__selection">
                             <ul class="bignav__selection--list">
-                                <li><a href="/traveltour/index.html">Home</a></li>
+                                <li><a href="/traveltour/">Home</a></li>
                                 <li><a href="/traveltour/html/about.jsp">About</a></li>
                                 <!--<li><a href="/traveltour/html/news.jsp">News</a></li>-->
                                 <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
-                                <!--<li><a href="/traveltour/html/contact.jsp">Contact</a></li>-->
-                            </ul>
+                                
+                                 <c:if test ="${not empty sessionScope.username && sessionScope.role =='admin'}">
+                                <li class="manage"><a href="/traveltour/manage" style="color:white; text-decoration: none">Manage</a></li>
+                                </c:if>
                         </div>
                         <div class="nav--mobile">
                             <i class="ti-menu"></i>

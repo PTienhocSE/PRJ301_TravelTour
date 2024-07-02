@@ -1,3 +1,11 @@
+<%-- 
+    Document   : index
+    Created on : Jun 28, 2024, 11:03:28 PM
+    Author     : Le Phuong Uyen
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,11 +62,15 @@
                         </div>
                         <div class="bignav__selection">
                             <ul class="bignav__selection--list">
-                                <li><a href="/traveltour/index.html">Home</a></li>
+                                <li><a href="/traveltour/">Home</a></li>
                                 <li><a href="/traveltour/html/about.jsp">About</a></li>
                                 <!--<li><a href="/traveltour/html/news.jsp">News</a></li>-->
                                 <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
-                                <!--<li><a href="/traveltour/html/contact.jsp">Contact</a></li>-->
+                                <!--<li><a href="/traveltour/html/contact.jsp">Contact</a></li>--> 
+                                <c:if test ="${not empty sessionScope.username && sessionScope.role =='admin'}">
+                                    <li class="manage"><a href="/traveltour/manage" style="color:white; text-decoration: none">Manage</a></li>
+                                </c:if>
+
                             </ul>
                         </div>
                         <div class="nav--mobile">

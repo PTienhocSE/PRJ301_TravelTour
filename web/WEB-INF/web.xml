@@ -16,6 +16,10 @@
         <servlet-name>RegisterServelet</servlet-name>
         <servlet-class>controller.RegisterServelet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManageServlet</servlet-name>
+        <servlet-class>controller.ManageServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BookingServelet</servlet-name>
         <url-pattern>/bookingservelet</url-pattern>
@@ -31,5 +35,12 @@
     <servlet-mapping>
         <servlet-name>RegisterServelet</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <!--    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>-->
+    <servlet-mapping>
+        <servlet-name>ManageServlet</servlet-name>
+        <url-pattern>/manage</url-pattern>
     </servlet-mapping>
 </web-app>

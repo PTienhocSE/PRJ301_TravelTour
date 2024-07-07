@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*" %>
+<%@ page import="model.Account" %> <!-- Import model Account -->
 <%
     String url = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_TourTravel;encrypt=false;trustServerCertificate=false";
     String user = "sa";
@@ -20,12 +20,10 @@
         e.printStackTrace();
     }
 %>
-<%@ page import="java.sql.*, java.util.*" %>
-<%@ page import="model.Account" %> <!-- Import model Account -->
 <%
     // Lấy thông tin người dùng từ session
     Account account = (Account) session.getAttribute("account");
-    String displayName = (account != null) ? account.getUsername() : ""; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
+    String displayName = (account != null) ? account.getUsername() : "Login"; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,30 +121,20 @@
                     <div class="card card-item col-md-3">
                         <img class="card-img-top" src="<%= rs.getString("image_path") %>" alt="Title" />
                         <div class="card-body">
-                            <form action="">
-                                <h4 class="card-title"><%= rs.getString("title") %></h4>
-                                <p class="card-text">Tour code:</p>
-                                <p class="card-tourcode ti-ticket"><%= rs.getString("tour_code") %></p>
-                                <p class="card-text">Place of departure:</p>
-                                <p style="font-weight: bold;"><%= rs.getString("departure_place") %></p>
-                                <div class="durationtime">
-                                    <div class="durationtime-time">
-                                        <p class="card-text">Travel time:</p>
-                                        <p style="font-weight: bold;"><%= rs.getString("travel_time") %></p>
-                                    </div>
-                                    <div class="duration-day">
-                                        <p class="card-text">Duration:</p>
-                                        <p style="font-weight: bold;"><%= rs.getString("duration") %></p>
-                                    </div>
+                            <h4 class="card-title"><%= rs.getString("title") %></h4>
+                            <p class="card-text">Tour code:</p>
+                            <p class="card-tourcode ti-ticket"><%= rs.getString("tour_code") %></p>
+                            <p class="card-text">Place of departure:</p>
+                            <p style="font-weight: bold;"><%= rs.getString("departure_place") %></p>
+                            <div class="durationtime">
+                                <div class="durationtime-time">
+                                    <p class="card-text">Travel time:</p>
+                                    <p style="font-weight: bold;"><%= rs.getString("travel_time") %></p>
                                 </div>
-                                <p class="card-price"><%= rs.getString("price") %> vnd</p>
-                                <div class="book-form">
-                                    <input class="book-btn" type="submit" value="Book now">
-                                    <a class="detail-btn" href="">View details</a>
+                                <div class="duration-day">
+                                    <p class="card-text">Duration:</p>
+                                    <p style="font-weight: bold;"><%= rs.getString("duration") %></p>
                                 </div>
-<<<<<<< Updated upstream
-                            </form>
-=======
                             </div>
                             <p class="card-price"><%= rs.getString("price") %> vnd</p>
                             <div class="book-form">
@@ -161,7 +149,6 @@
                                     <input type="hidden" name="departurePlace" value="<%= rs.getString("departure_place") %>">
                                     <button class="book-btn" type="submit">Booking now</button>
                                 </form>
-                                    
                                 <!-- Form to view details -->
                                 <form action="/traveltour/DetailsServlet" method="GET">
                                     <input type="hidden" name="tourCode" value="<%= rs.getString("tour_code") %>">
@@ -174,7 +161,6 @@
                                     <button class="detail-btn" type="submit">View details</button>
                                 </form>
                             </div>
->>>>>>> Stashed changes
                         </div>
                     </div>
                     <% } %>

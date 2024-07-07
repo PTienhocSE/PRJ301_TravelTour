@@ -3,9 +3,15 @@
     Created on : Jun 28, 2024, 11:03:28 PM
     Author     : Le Phuong Uyen
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.sql.*, java.util.*" %>
+<%@ page import="model.Account" %> <!-- Import model Account -->
+<%
+    // Lấy thông tin người dùng từ session
+    Account account = (Account) session.getAttribute("account");
+    String displayName = (account != null) ? account.getUsername() : ""; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,8 +35,6 @@
     </head>
 
     <body>
-
-
         <div id="main">
             <!-- BEGIN HEADER  -->
             <div id="header">
@@ -49,10 +53,20 @@
                                 <a href="#" class="smallnav__right--icon ti-mobile"></a>
                             </div> -->
                         <div class="smallnav__login">
-                            <a style="border-right: 1px solid white;;" href="/traveltour/html/login.jsp">Login</a>
+                            <a href=""><%= displayName %></a> <!-- Hiển thị tên người dùng hoặc "Login" -->
+                            <% if (account != null) { %> <!-- Kiểm tra nếu người dùng đã đăng nhập -->
+                            <a href="/traveltour/html/logout.jsp">Logout</a> <!-- Hiển thị liên kết "Logout" nếu đã đăng nhập -->
+                            <% } else { %> <!-- Nếu chưa đăng nhập -->
+                            <a  style="border-right: 1px solid white;" href="/traveltour/html/login.jsp">Login</a>
                             <a href="/traveltour/html/register.jsp">Register</a>
+                            <% } %>
                         </div>
                     </div>
+                    <%
+                                        String role = null;
+                                        if (session != null) {
+                                            role = (String) session.getAttribute("role");
+                        }%>
                     <div class="bignav">
                         <div class="bignav__namecity">
                             <a href="#" style="
@@ -67,9 +81,10 @@
                                 <!--<li><a href="/traveltour/html/news.jsp">News</a></li>-->
                                 <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
                                 <!--<li><a href="/traveltour/html/contact.jsp">Contact</a></li>--> 
-                                <c:if test ="${not empty sessionScope.username && sessionScope.role =='admin'}">
-                                    <li class="manage"><a href="/traveltour/manage" style="color:white; text-decoration: none">Manage</a></li>
-                                </c:if>
+                                <%  if ("admin".equals(role)){
+                                    %>
+                                    <li> <a href="manage?page=manage.jsp" style="color:white; text-decoration: none">Manage</a></li>
+                                    <%}%>
                             </ul>
                         </div>
                         <div class="nav--mobile">

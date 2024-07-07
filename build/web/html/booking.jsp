@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="controller.ManageServlet" %> 
+
 <%
     String url = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_TourTravel;encrypt=false;trustServerCertificate=false";
     String user = "sa";
@@ -25,6 +29,7 @@
 <%
     // Lấy thông tin người dùng từ session
     Account account = (Account) session.getAttribute("account");
+    String isAdmin = (String) session.getAttribute("role");
     String displayName = (account != null) ? account.getUsername() : ""; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
 %>
 <!DOCTYPE html>
@@ -46,6 +51,11 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </head>
     <body>
+        <%
+                                        String role = null;
+                                        if (session != null) {
+                                            role = (String) session.getAttribute("role");
+                        }%>
         <div id="main">
             <div id="header">
                 <div id="navbar">
@@ -74,9 +84,10 @@
                                 <!--<li><a href="/traveltour/html/news.jsp">News</a></li>-->
                                 <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
                                 
-                                 <c:if test ="${not empty sessionScope.username && sessionScope.role =='admin'}">
-                                <li class="manage"><a href="/traveltour/manage" style="color:white; text-decoration: none">Manage</a></li>
-                                </c:if>
+                                <%  if ("admin".equals(role)){
+                                    %>
+                                    <li> <a href="manage?page=manage.jsp" style="color:white; text-decoration: none">Manage</a></li>
+                                    <%}%>
                         </div>
                         <div class="nav--mobile">
                             <i class="ti-menu"></i>

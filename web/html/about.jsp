@@ -1,4 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.sql.*, java.util.*" %>
 <%@ page import="model.Account" %>
 <%
     // Lấy thông tin người dùng từ session
@@ -115,6 +117,11 @@
         }
     </style>
     <body>
+          <%
+                                        String role = null;
+                                        if (session != null) {
+                                            role = (String) session.getAttribute("role");
+                        }%>
         <div id="main">
             <div id="header">
                 <div id="navbar">
@@ -144,9 +151,10 @@
                                 <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
                                 <!--<li><a href="/traveltour/html/contact.jsp">Contact</a></li>-->
 
-                               <c:if test ="${not empty sessionScope.username && sessionScope.role =='admin'}">
-                                <li class="manage"><a href="/traveltour/manage" style="color:white; text-decoration: none">Manage</a></li>
-                                </c:if>
+                            <%  if ("admin".equals(role)){
+                                    %>
+                                    <li> <a href="manage?page=manage.jsp" style="color:white; text-decoration: none">Manage</a></li>
+                                    <%}%>
                             </ul>
                         </div>
                         <div class="nav--mobile">

@@ -62,7 +62,7 @@ public class ManageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        String page = request.getParameter("page");
         DAO dao = new DAO();
         String number = " " + dao.getNumberOfUser();
         String numberBooking = " " + dao.getNumberOfBooking();

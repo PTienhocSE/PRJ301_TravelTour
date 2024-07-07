@@ -36,9 +36,6 @@
         <servlet-name>RegisterServelet</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
-    <!--    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>-->
     <servlet-mapping>
         <servlet-name>ManageServlet</servlet-name>
         <url-pattern>/manage</url-pattern>

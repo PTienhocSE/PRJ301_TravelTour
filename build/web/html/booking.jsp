@@ -23,7 +23,7 @@
 <%
     // Lấy thông tin người dùng từ session
     Account account = (Account) session.getAttribute("account");
-    String displayName = (account != null) ? account.getUsername() : "Login"; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
+    String displayName = (account != null) ? account.getUsername() : ""; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
 %>
 <!DOCTYPE html>
 <html lang="en">

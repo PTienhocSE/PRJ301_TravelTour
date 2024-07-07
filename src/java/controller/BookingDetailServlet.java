@@ -60,14 +60,4 @@ public class BookingDetailServlet extends HttpServlet {
             throw new ServletException("Database access error", e);
         }
     }
-
-    // doPost method remains as you have it, handling form submissions
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Process form data, if any (not shown in your snippet)
-    }
-
-    // getServletInfo method remains as you have it
-    public String getServletInfo() {
-        return "Booking Details Servlet";
-    }
 }

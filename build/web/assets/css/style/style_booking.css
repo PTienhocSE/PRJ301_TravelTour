@@ -88,6 +88,12 @@ body {
     color: #fff;
     border-radius: 6px;
     padding: 3px 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#booking .book-btn:hover {
+    background-color: #750c00;
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
 }
 
 #booking .book-form {

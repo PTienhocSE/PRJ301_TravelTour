@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
+<<<<<<< Updated upstream
         <servlet-name>BookingServelet</servlet-name>
         <servlet-class>controller.BookingServelet</servlet-class>
     </servlet>
@@ -19,6 +20,30 @@
     <servlet-mapping>
         <servlet-name>BookingServelet</servlet-name>
         <url-pattern>/bookingservelet</url-pattern>
+=======
+        <servlet-name>Servelet</servlet-name>
+        <servlet-class>controller.Servelet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServelet</servlet-name>
+        <servlet-class>controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServelet</servlet-name>
+        <servlet-class>controller.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>controller.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servelet</servlet-name>
+        <url-pattern>/servelet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servelet</servlet-name>
+        <url-pattern>/traveltour</url-pattern>
+>>>>>>> Stashed changes
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServelet</servlet-name>
@@ -29,7 +54,12 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< Updated upstream
         <servlet-name>RegisterServelet</servlet-name>
         <url-pattern>/register</url-pattern>
+=======
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/order</url-pattern>
+>>>>>>> Stashed changes
     </servlet-mapping>
 </web-app>

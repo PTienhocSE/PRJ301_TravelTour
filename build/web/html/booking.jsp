@@ -144,7 +144,37 @@
                                     <input class="book-btn" type="submit" value="Book now">
                                     <a class="detail-btn" href="">View details</a>
                                 </div>
+<<<<<<< Updated upstream
                             </form>
+=======
+                            </div>
+                            <p class="card-price"><%= rs.getString("price") %> vnd</p>
+                            <div class="book-form">
+                                <!-- Form to view details -->
+                                <form action="/traveltour/OrderServlet" method="GET">
+                                    <input type="hidden" name="tourCode" value="<%= rs.getString("tour_code") %>">
+                                    <input type="hidden" name="title" value="<%= rs.getString("title") %>">
+                                    <input type="hidden" name="price" value="<%= rs.getString("price") %>">
+                                    <input type="hidden" name="duration" value="<%= rs.getString("duration") %>">
+                                    <input type="hidden" name="travelTime" value="<%= rs.getString("travel_time") %>">
+                                    <input type="hidden" name="imagePath" value="<%= rs.getString("image_path") %>">
+                                    <input type="hidden" name="departurePlace" value="<%= rs.getString("departure_place") %>">
+                                    <button class="book-btn" type="submit">Booking now</button>
+                                </form>
+                                    
+                                <!-- Form to view details -->
+                                <form action="/traveltour/DetailsServlet" method="GET">
+                                    <input type="hidden" name="tourCode" value="<%= rs.getString("tour_code") %>">
+                                    <input type="hidden" name="title" value="<%= rs.getString("title") %>">
+                                    <input type="hidden" name="price" value="<%= rs.getString("price") %>">
+                                    <input type="hidden" name="duration" value="<%= rs.getString("duration") %>">
+                                    <input type="hidden" name="travelTime" value="<%= rs.getString("travel_time") %>">
+                                    <input type="hidden" name="imagePath" value="<%= rs.getString("image_path") %>">
+                                    <input type="hidden" name="departurePlace" value="<%= rs.getString("departure_place") %>">
+                                    <button class="detail-btn" type="submit">View details</button>
+                                </form>
+                            </div>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                     <% } %>

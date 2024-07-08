@@ -86,7 +86,7 @@
                                 
                                 <%  if ("admin".equals(role)){
                                     %>
-                                    <li> <a href="manage?page=manage.jsp" style="color:white; text-decoration: none">Manage</a></li>
+                                    <li> <a href="/traveltour/html/manage.jsp" style="color:white; text-decoration: none">Manage</a></li>
                                     <%}%>
                         </div>
                         <div class="nav--mobile">

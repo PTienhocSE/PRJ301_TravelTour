@@ -59,6 +59,6 @@
             </c:forEach>
         </tbody>
     </table>
-    <a href="AddAccount.jsp">Create Account</a>    
+    <a href="./html/addAccount.jsp">Create Account</a>    
 </body>
 </html>

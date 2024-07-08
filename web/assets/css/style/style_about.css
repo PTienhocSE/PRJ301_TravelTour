@@ -35,7 +35,6 @@ body{
     background-size: cover;
     background-position: center center;
     opacity: 0.9;
-    filter: grayscale(0.8) blur(1px) !important;
 }
 /* BEGIN CONTENT  */
 .content__intro{

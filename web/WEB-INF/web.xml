@@ -20,6 +20,10 @@
         <servlet-name>OrderServlet</servlet-name>
         <servlet-class>controller.OrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManageServlet</servlet-name>
+        <servlet-class>controller.ManageServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BookingServlet</servlet-name>
         <url-pattern>/booking</url-pattern>
@@ -37,7 +41,12 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
+        <servlet-name>ManageServlet</servlet-name>
+        <url-pattern>/manage</url-pattern>
+=======
         <servlet-name>OrderServlet</servlet-name>
         <url-pattern>/order</url-pattern>
+>>>>>>> main
     </servlet-mapping>
 </web-app>

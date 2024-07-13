@@ -44,8 +44,10 @@ public class LoginServlet extends HttpServlet {
 
             // Redirect based on user role
             if (account.getIsAdmin() == 1) {
+                session.setAttribute("role", "admin");
                 response.sendRedirect("/traveltour/html/booking.jsp");
             } else {
+                session.setAttribute("role", "user");
                 response.sendRedirect("/traveltour/html/booking.jsp");
             }
         }

@@ -8,5 +8,5 @@
     // Hủy bỏ session để đăng xuất
     session.invalidate();
     // Chuyển hướng người dùng về trang chủ sau khi đăng xuất
-    response.sendRedirect(request.getContextPath() + "/index.html");
+    response.sendRedirect(request.getContextPath() + "/index.jsp");
 %>

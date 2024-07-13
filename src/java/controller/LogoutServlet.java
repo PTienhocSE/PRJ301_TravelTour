@@ -1,3 +1,8 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -11,8 +16,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author phuct
  */
-public class BookingServelet extends HttpServlet {
-   
+public class LogoutServlet extends HttpServlet {
+   private static final long serialVersionUID = 1L;
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -28,10 +33,10 @@ public class BookingServelet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet BookingServlet</title>");  
+            out.println("<title>Servlet LogoutServelet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet BookingServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet LogoutServelet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -48,7 +53,9 @@ public class BookingServelet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("/booking.jsp").forward(request, response);
+         request.getSession().invalidate();
+        // Chuyển hướng người dùng về trang chủ sau khi đăng xuất
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
     } 
 
     /** 
@@ -56,7 +63,11 @@ public class BookingServelet extends HttpServlet {
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs {
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -68,4 +79,5 @@ public class BookingServelet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }

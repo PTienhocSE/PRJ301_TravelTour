@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 /**
  * Handles login requests and forwards to appropriate pages based on user role.
  */
-public class LoginServelet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -65,7 +65,7 @@ public class LoginServelet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(LoginServelet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
 
@@ -82,7 +82,7 @@ public class LoginServelet extends HttpServlet {
         try { 
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(LoginServelet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

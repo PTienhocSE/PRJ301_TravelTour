@@ -1,3 +1,8 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+
 package controller;
 
 import jakarta.servlet.ServletException;
@@ -7,11 +12,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/DetailsServlet")
-public class DetailsServlet extends HttpServlet {
+@WebServlet("/OrderServlet")
+public class OrderServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Lấy các tham số từ request
         String tourCode = request.getParameter("tourCode");
         String title = request.getParameter("title");
         String price = request.getParameter("price");
@@ -20,7 +26,7 @@ public class DetailsServlet extends HttpServlet {
         String imagePath = request.getParameter("imagePath");
         String departurePlace = request.getParameter("departurePlace");
 
-        // Set attributes in request scope
+        // Lưu các tham số vào request attribute
         request.setAttribute("tourCode", tourCode);
         request.setAttribute("title", title);
         request.setAttribute("price", price);
@@ -29,7 +35,11 @@ public class DetailsServlet extends HttpServlet {
         request.setAttribute("imagePath", imagePath);
         request.setAttribute("departurePlace", departurePlace);
 
-        // Forward the request to details.jsp
-        request.getRequestDispatcher("/html/details.jsp").forward(request, response);
+        // Chuyển tiếp đến trang JSP để hiển thị chi tiết
+        request.getRequestDispatcher("/html/order.jsp").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 }

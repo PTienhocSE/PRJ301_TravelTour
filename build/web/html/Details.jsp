@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*" %>
+<%@ page import="model.Account" %> <!-- Import model Account -->
 <%
     String url = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_TourTravel;encrypt=false;trustServerCertificate=false";
     String user = "sa";
@@ -20,8 +20,6 @@
         e.printStackTrace();
     }
 %>
-<%@ page import="java.sql.*, java.util.*" %>
-<%@ page import="model.Account" %> <!-- Import model Account -->
 <%
     // Lấy thông tin người dùng từ session
     Account account = (Account) session.getAttribute("account");
@@ -105,29 +103,34 @@
                 </script>
             </div>
             <div id="detail">
-                <div class="detail__info">
+            <div class="detail__info">
                 <div class="detail-left col-md-7">
-                    <!-- Change tourcode from database -->
                     <div class="detail__tourcode">
                         <i class="ti-ticket"></i>
                         <%= request.getAttribute("tourCode") %>
                     </div>
-                    <!-- Change title from database -->
                     <div class="details__title">
                         <%= request.getAttribute("title") %>
                     </div>
                 </div>
                 <div class="detail-right col-md-3">
-                    <!-- Change price from database -->
                     <div class="detail__price">
                         <p style="color: red; font-weight: 700;"><%= request.getAttribute("price") %> vnd</p>
                         /pass
                     </div>
-
-                    <a class="detail__price--book" href="/traveltour/html/order.jsp"><i class="ti-shopping-cart"> Booking now</i></a>
+                    <form action="/traveltour/OrderServlet" method="GET">
+                        <input type="hidden" name="tourCode" value="<%= request.getAttribute("tourCode") %>">
+                        <input type="hidden" name="title" value="<%= request.getAttribute("title") %>">
+                        <input type="hidden" name="price" value="<%= request.getAttribute("price") %>">
+                        <input type="hidden" name="duration" value="<%= request.getAttribute("duration") %>">
+                        <input type="hidden" name="travelTime" value="<%= request.getAttribute("travelTime") %>">
+                        <input type="hidden" name="imagePath" value="<%= request.getAttribute("imagePath") %>">
+                        <input type="hidden" name="departurePlace" value="<%= request.getAttribute("departurePlace") %>">
+                        <button class="detail__price--book" type="submit">Booking now</button>
+                    </form>
                     <a class="detail__price--contact" href="#">Contact us</a>
                 </div>
-                </div>
+            </div>
                 <div class="detail__img">
                     <div class="detail__img--left col-md-8">
                     <!-- Change img from database -->

@@ -5,6 +5,7 @@
     // Lấy thông tin người dùng từ session
     Account account = (Account) session.getAttribute("account");
     String displayName = (account != null) ? account.getUsername() : ""; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
+    int isAdmin = (account != null) ? account.getIsAdmin() : 0; // Get isAdmin value or set to 0 if not logged in
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -144,6 +145,9 @@
                             <!--<li><a href="/traveltour/html/news.jsp">News</a></li>-->
                             <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
                             <!--<li><a href="/traveltour/html/contact.jsp">Contact</a></li>-->
+                            <% if (isAdmin == 1) { %> <!-- Check if user is an admin -->
+                            <li><a href="/traveltour/dashboard/manager.account.jsp">Manager</a></li> <!-- Show "Manager" link if admin -->
+                                <% } %>
                         </ul>
                     </div>
                     <div class="nav--mobile">

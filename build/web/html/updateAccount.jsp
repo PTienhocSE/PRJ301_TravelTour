@@ -68,57 +68,57 @@
     <form action="updateAccountServlet" method="post">
         <table>
             <tr>
-                <td>UserID</td>
+                <td>User ID</td>
                 <td>
-                    <input value="${st.userID}" type="text" name="id" readonly>
+                    <input value="${st.userID}" type="text" name="userID" readonly>
                 </td>
             </tr>
             <tr>
-                <td>FirstName</td>
+                <td>First Name</td>
                 <td>
-                    <input value="${st.firstName}" type="text" name="title">
+                    <input value="${st.firstName}" type="text" name="firstName">
                 </td>
             </tr>
             <tr>
-                <td>LastName</td>
+                <td>Last Name</td>
                 <td>
-                    <input value="${st.lastName}" type="text" name="tourCode">
+                    <input value="${st.lastName}" type="text" name="lastName">
                 </td>
             </tr>
             <tr>
                 <td>Email</td>
                 <td>
-                    <input value="${st.email}" type="text" name="departurePlace">
+                    <input value="${st.email}" type="text" name="email">
                 </td>
             </tr>
             <tr>
                 <td>Username</td>
                 <td>
-                    <input value="${st.username}" type="text" name="travelTime">
+                    <input value="${st.username}" type="text" name="username">
                 </td>
             </tr>
             <tr>
                 <td>Password</td>
                 <td>
-                    <input value="${st.password}" type="text" name="duration">
+                    <input value="${st.password}" type="text" name="password">
                 </td>
             </tr>
             <tr>
                 <td>Phone</td>
                 <td>
-                    <input value="${st.phone}" type="text" name="price">
+                    <input value="${st.phone}" type="text" name="phone">
                 </td>
             </tr>
             <tr>
-                <td>IsUser</td>
+                <td>Is User</td>
                 <td>
-                    <input value="${st.isUser}" type="text" name="price">
+                    <input value="${st.isUser}" type="text" name="isUser">
                 </td>
             </tr>
             <tr>
-                <td>IsAdmin</td>
+                <td>Is Admin</td>
                 <td>
-                    <input value="${st.isAdmin}" type="text" name="price">
+                    <input value="${st.isAdmin}" type="text" name="isAdmin">
                 </td>
             </tr>
             <tr>

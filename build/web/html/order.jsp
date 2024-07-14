@@ -29,7 +29,8 @@
 <%
     // Get user information from session
     Account account = (Account) session.getAttribute("account");
-    String displayName = (account != null) ? account.getUsername() : "Login"; // Get username or display "Login"
+    String displayName = (account != null) ? account.getUsername() : ""; // Get username or display "Login"
+    int isAdmin = (account != null) ? account.getIsAdmin() : 0; // Get isAdmin value or set to 0 if not logged in
 %>
 
 <!DOCTYPE html>
@@ -76,6 +77,9 @@
                             <li><a href="/traveltour/index.html">Home</a></li>
                             <li><a href="/traveltour/html/about.jsp">About</a></li>
                             <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
+                            <% if (isAdmin == 1) { %> <!-- Check if user is an admin -->
+                            <li><a href="/traveltour/dashboard/manager.account.jsp">Manager</a></li> <!-- Show "Manager" link if admin -->
+                            <% } %>
                         </ul>
                     </div>
                     <div class="nav--mobile">

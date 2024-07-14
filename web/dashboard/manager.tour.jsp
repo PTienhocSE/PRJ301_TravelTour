@@ -126,7 +126,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/traveltour/dashboard/manager.booking.jsp">
+                            <a href="/traveltour/loadBooking">
                                 <i class="bi bi-bar-chart-line"></i>
                                 <span class="menu-text">Booking</span>
                             </a>

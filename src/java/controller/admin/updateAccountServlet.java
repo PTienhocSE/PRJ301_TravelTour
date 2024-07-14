@@ -16,10 +16,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author thngu
- */
+
 @WebServlet(name = "updateAccountServlet", urlPatterns = {"/updateAccountServlet"})
 public class updateAccountServlet extends HttpServlet {
 

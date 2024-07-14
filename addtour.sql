@@ -76,6 +76,7 @@ CREATE TABLE Booking (
     tour_id INT NOT NULL,
     start_day DATE NOT NULL,
     num_passengers INT NOT NULL,
+	tour_code VARCHAR(20) NOT NULL,
     total_money DECIMAL(18, 2) NOT NULL,
     FOREIGN KEY (tour_id) REFERENCES Tour(id)
 );

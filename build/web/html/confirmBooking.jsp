@@ -240,39 +240,44 @@
             </div>
             <div class="order__contact-info">
                 <div class="order__contact--form col-md-6">
-                    <p class="order__contact--title">Contact Information</p>
-                    Full Name: <br> <input type="text" name="name" value="<%= request.getAttribute("name") %>" readonly>
-                    <br>
-                    Email: <br> <input type="email" name="email" value="<%= request.getAttribute("email") %>" readonly>
-                    <br>
-                    Phone: <br> <input type="text" name="phone" value="<%= request.getAttribute("phone") %>" readonly>
-                    <br>
-                    <p class="order__contact--title">Tour Info</p>
-                    <div class="order__card--info col-md-8">
-                        <img style="border-radius: 20px;" src="<%= request.getAttribute("imagePath") %>" alt="">
-                        <p style="font-weight: bold;"><%= request.getAttribute("title") %></p>
-                        <div class="order__card--text">
-                            <p>Tour code: <span class="order-card--content"><%= request.getAttribute("tourCode") %></span></p>
+                    <form action="/traveltour/bookbill" method="GET">
+                        <p class="order__contact--title">Contact Information</p>
+                        Full Name: <br> <input type="text" name="name" value="${name}" readonly>
+                        <br>
+                        Email: <br> <input type="email" name="email" value="${email}" readonly>
+                        <br>
+                        Phone: <br> <input type="text" name="phone" value="${phone}" readonly>
+                        <br>
+                        <p class="order__contact--title">Tour Info</p>
+                        <div class="order__card--info col-md-8">
+                            <img style="border-radius: 20px;" src="${imagePath}" alt="">
+                            <p style="font-weight: bold;">${title}</p>
+                            <div class="order__card--text">
+                                <p>Tour code: <span class="order-card--content">${tourCode}</span></p>
+                            </div>
+                            <div class="order__card--text">
+                                <p>Duration: <span class="order-card--content">${duration}</span></p>
+                            </div>
+                            <div class="order__card--text">
+                                <p>Departure Point: <span class="order-card--content">${departurePlace}</span></p>
+                            </div>
+                            <div class="order__card--text">
+                                <p>Time travel: <span class="order-card--content">${travelTime}</span></p>
+                            </div>
+                            <div class="order__card--text">
+                                <p>Price: <span class="order-card--content">${price}đ</span></p>
+                            </div>
                         </div>
-                        <div class="order__card--text">
-                            <p>Duration: <span class="order-card--content"><%= request.getAttribute("duration") %></span></p>
-                        </div>
-                        <div class="order__card--text">
-                            <p>Departure Point: <span class="order-card--content"><%= request.getAttribute("departurePlace") %></span></p>
-                        </div>
-                        <div class="order__card--text">
-                            <p>Time travel: <span class="order-card--content"><%= request.getAttribute("travelTime") %></span></p>
-                        </div>
-                    </div>
                         Start day:<br>
-                    <input type="date" name="startDate" value="<%= request.getAttribute("startDate") %>" readonly>
-                    <p class="order__contact--title">Passenger</p>
-                    Number of Passengers: <br> <input type="number" name="numPassengers" value="<%= request.getAttribute("numPassengers") %>" readonly>
-                    <br>
-                    <p class="order__contact--title">Total Money</p>
-                    <input type="text" name="totalMoney" value="<%= request.getAttribute("totalMoney") %>₫" readonly>
-                    <br>
-                    <form action="/traveltour/confirmPaymentServlet" method="POST">
+                        <input type="text" name="startDate" value="${startDate}" readonly>
+                        <p class="order__contact--title">Passenger</p>
+                        Number of Passengers: <br> <input type="number" name="numPassengers" value="${numPassengers}" readonly>
+                        <br>
+                        <p class="order__contact--title">Total Money</p>
+                        <input type="text" name="totalMoney" value="${totalMoney}₫" readonly>
+                        <br>
+                        <input type="hidden" name="id" value="${tourId}">
+                        <input type="hidden" name="tour_code" value="${tourCode}">
                         <button type="submit" class="btn btn-primary">Confirm Payment</button>
                     </form>
                 </div>

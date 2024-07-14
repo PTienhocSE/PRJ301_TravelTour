@@ -10,6 +10,7 @@ public class Tour {
     private String duration;
     private String price;
     private String imagePath;
+    private  String tour_code;
 
     public Tour() {
     }

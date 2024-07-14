@@ -3,20 +3,22 @@ package dal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DBContext {
+    private static final Logger LOGGER = Logger.getLogger(DBContext.class.getName());
+    
     protected Connection connection;
 
     public DBContext() {
         try {
             connection = getConnection();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error initializing DB connection: {0}", ex.getMessage());
         }
     }
 
-    /* USE BELOW METHOD FOR YOUR DATABASE CONNECTION FOR BOTH SINGLE AND MULTILPE SQL SERVER INSTANCE(s) */
-    /* DO NOT EDIT THE BELOW METHOD, YOU MUST USE ONLY THIS ONE FOR YOUR DATABASE CONNECTION */
     public Connection getConnection() throws Exception {
         String url = "jdbc:sqlserver://" + serverName + ":" + portNumber;
         if (instance != null && !instance.trim().isEmpty()) {
@@ -24,28 +26,24 @@ public class DBContext {
         }
         url += ";databaseName=" + dbName + ";encrypt=false;trustServerCertificate=false";
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        LOGGER.log(Level.INFO, "Attempting to connect to the database with URL: {0}", url);
         return DriverManager.getConnection(url, userID, password);
     }
 
-    /* Insert your other code right after this comment */
-    /* Change/update information of your database connection, DO NOT change name of instance variables in this class */
     private final String serverName = "localhost";
     private final String dbName = "PRJ301_TourTravel";
     private final String portNumber = "1433";
-    private final String instance = ""; // LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
+    private final String instance = "";
     private final String userID = "sa";
     private final String password = "123";
 
-    // Example method to close the connection
     public void closeConnection() {
         if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {
-                e.printStackTrace();
+                LOGGER.log(Level.SEVERE, "Error closing DB connection: {0}", e.getMessage());
             }
         }
     }
-
-
 }

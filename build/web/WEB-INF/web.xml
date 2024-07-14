@@ -20,6 +20,18 @@
         <servlet-name>OrderServlet</servlet-name>
         <servlet-class>controller.OrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>managerDashboard</servlet-name>
+        <servlet-class>controller.dashboard.managerDashboard</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>loadTourServlet</servlet-name>
+        <servlet-class>controller.admin.loadTourServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>confirmPaymentServlet</servlet-name>
+        <servlet-class>controller.confirmPaymentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BookingServlet</servlet-name>
         <url-pattern>/booking</url-pattern>
@@ -39,5 +51,17 @@
     <servlet-mapping>
         <servlet-name>OrderServlet</servlet-name>
         <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>managerDashboard</servlet-name>
+        <url-pattern>/manager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loadTourServlet</servlet-name>
+        <url-pattern>/loadTour</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>confirmPaymentServlet</servlet-name>
+        <url-pattern>/confirmPaymentServlet</url-pattern>
     </servlet-mapping>
 </web-app>

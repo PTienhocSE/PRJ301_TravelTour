@@ -26,7 +26,7 @@ public class loadAccountServlet extends HttpServlet {
         AccountDAO dao = new AccountDAO();
         List<Account> list = dao.getAllAccount();
         request.setAttribute("listS", list);
-        request.getRequestDispatcher("/html/loadAccount.jsp").forward(request, response);
+        request.getRequestDispatcher("./dashboard/manager.account.jsp").forward(request, response);
     }
 
 }

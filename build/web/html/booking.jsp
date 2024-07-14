@@ -74,7 +74,7 @@
                                 <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
                                 <!--<li><a href="/traveltour/html/contact.jsp">Contact</a></li>-->
                                 <% if (isAdmin == 1) { %> <!-- Check if user is an admin -->
-                                <li><a href="/traveltour/dashboard/manager.account.jsp">Manager</a></li> <!-- Show "Manager" link if admin -->
+                                <li><a href="/traveltour/dashboard/manager.index.jsp">Manager</a></li> <!-- Show "Manager" link if admin -->
                                     <% } %>
                             </ul>
                         </div>

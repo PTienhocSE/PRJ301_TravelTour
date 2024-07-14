@@ -1,35 +1,24 @@
-<%-- 
-    Document   : manager.account
-    Created on : Jul 14, 2024, 12:00:07 AM
-    Author     : phuct
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*, java.util.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="model.Account" %> <!-- Import model Account -->
+<%@ page import="java.util.List" %> <!-- Import List -->
+<%@ page import="java.util.ArrayList" %> <!-- Import ArrayList -->
 <%
-    String url = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_TourTravel;encrypt=false;trustServerCertificate=false";
-    String user = "sa";
-    String password = "123";
-
-    Connection conn = null;
-    Statement stmt = null;
-    ResultSet rs = null;
-
-    try {
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        conn = DriverManager.getConnection(url, user, password);
-        stmt = conn.createStatement();
-        String sql = "SELECT * FROM Tour";
-        rs = stmt.executeQuery(sql);
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-%>
-<%
-    // Lấy thông tin người dùng từ session
+    // Get account information from session
     Account account = (Account) session.getAttribute("account");
-    String displayName = (account != null) ? account.getUsername() : ""; // Lấy tên người dùng, nếu không có sẽ hiển thị "Login"
-    int isAdmin = (account != null) ? account.getIsAdmin() : 0; // Get isAdmin value or set to 0 if not logged in
+    String displayName = (account != null) ? account.getUsername() : ""; // Get username, default to empty if not logged in
+    int isAdmin = (account != null) ? account.getIsAdmin() : 0; // Get isAdmin value, default to 0 if not logged in
+
+    // Simulate getting list of users from session or database
+    List<Account> listS = (List<Account>) session.getAttribute("listS");
+    if (listS == null) {
+        listS = new ArrayList<Account>();
+        // Add mock data for demonstration
+        listS.add(new Account(1, "John", "Doe", "john.doe@example.com", "john", "password123", "1234567890", 1, 1));
+        listS.add(new Account(2, "Jane", "Doe", "jane.doe@example.com", "jane", "password123", "0987654321", 1, 0));
+        // Store list in session for future use
+        session.setAttribute("listS", listS);
+    }
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,14 +37,14 @@
         <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
         <meta property="og:type" content="Website">
         <meta property="og:site_name" content="Bootstrap Gallery">
-        <link rel="shortcut icon" href="assets/images/favicon.svg" />
 
         <!-- *************
                 ************ CSS Files *************
         ************* -->
-        <link rel="stylesheet" href="assets/fonts/bootstrap/bootstrap-icons.css" />
-        <link rel="stylesheet" href="assets/css/main.min.css" />
-        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dashboard/assets/fonts/bootstrap/bootstrap-icons.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dashboard/assets/css/main.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dashboard/assets/css/main.css">
+
 
 
         <!-- *************
@@ -63,10 +52,10 @@
         ************ -->
 
         <!-- Scrollbar CSS -->
-        <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dashboard/assets/vendor/overlay-scroll/OverlayScrollbars.min.css" />
 
         <!-- Toastify CSS -->
-        <link rel="stylesheet" href="assets/vendor/toastify/toastify.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dashboard/assets/vendor/toastify/toastify.css" />
 
     </head>
 
@@ -103,7 +92,7 @@
                     <div class="dropdown ms-2">
                         <a id="userSettings" class="dropdown-toggle d-flex py-2 align-items-center text-decoration-none" href="#!"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/images/user.png" class="rounded-2 img-3x" alt="Bootstrap Gallery" />
+                            <img src="${pageContext.request.contextPath}/dashboard/assets/images/R.jpg" class="rounded-2 img-3x" alt="Bootstrap Gallery" />
                             <span class="ms-2 text-truncate d-lg-block d-none"><%= displayName %></span>
                         </a>
                     </div>
@@ -131,9 +120,9 @@
                 <div class="sidebarMenuScroll">
                     <ul class="sidebar-menu">
                         <li class="active current-page">
-                            <a href="/traveltour/dashboard/manager.account.jsp">
+                            <a href="/traveltour/dashboard/manager.index.jsp">
                                 <i class="bi bi-pie-chart"></i>
-                                <span class="menu-text">Account</span>
+                                <span class="menu-text">Account, Tour</span>
                             </a>
                         </li>
                         <li>
@@ -157,7 +146,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
                             <i class="bi bi-house lh-1 pe-3 me-3 border-end border-dark"></i>
-                            <a href="index.html" class="text-decoration-none">Home</a>
+                            <a href="/traveltour/dashboard/manager.index.jsp" class="text-decoration-none">Home</a>
                         </li>
                         <li class="breadcrumb-item text-secondary" aria-current="page">
                             Account
@@ -184,14 +173,110 @@
 
                 <!-- App body starts -->
                 <div class="app-body">
+                    <div class="account">
+                        <a href="./html/addAccount.jsp">Create Account</a>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>Email</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>Phone</th>
+                                    <th>IsUser</th>
+                                    <th>IsAdmin</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${listS}" var="x">
+                                    <tr>
+                                        <td>${x.firstName}</td>
+                                        <td>${x.lastName}</td>
+                                        <td>${x.email}</td>
+                                        <td>${x.username}</td>
+                                        <td>${x.password}</td>
+                                        <td>${x.phone}</td>
+                                        <td>${x.isUser}</td>
+                                        <td>${x.isAdmin}</td>
+                                        <td>
+                                            <a href="updateAccountServlet?sid=${x.userID}">update</a>
+                                            <a href="deleteAccountServlet?sid=${x.userID}">delete</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
 
+                    </div>
+                    <style>
+                        .account {
+                            margin: 20px;
+                            font-family: Arial, sans-serif;
+                        }
+
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-bottom: 20px;
+                        }
+
+                        thead {
+                            background-color: #f2f2f2;
+                        }
+
+                        th, td {
+                            border: 1px solid #ddd;
+                            padding: 8px;
+                            text-align: center;
+                        }
+
+                        th {
+                            background-color: #4CAF50;
+                            color: white;
+                            font-weight: bold;
+                        }
+
+                        tr:nth-child(even) {
+                            background-color: #f9f9f9;
+                        }
+
+                        tr:hover {
+                            background-color: #f1f1f1;
+                        }
+
+                        a {
+                            text-decoration: none;
+                            color: #2196F3;
+                        }
+
+                        a:hover {
+                            text-decoration: underline;
+                        }
+
+                        .btn {
+                            display: inline-block;
+                            padding: 10px 20px;
+                            margin: 10px 0;
+                            background-color: #4CAF50;
+                            color: white;
+                            text-align: center;
+                            text-decoration: none;
+                            border-radius: 5px;
+                        }
+
+                        .btn:hover {
+                            background-color: #45a049;
+                        }
+                    </style>
 
                 </div>
                 <!-- App body ends -->
 
                 <!-- App footer start -->
                 <div class="app-footer">
-                    <span>© Bootstrap Gallery 2023</span>
+                    <span>© Imperial City</span>
                 </div>
                 <!-- App footer end -->
 

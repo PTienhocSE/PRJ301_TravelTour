@@ -29,7 +29,8 @@
 <%
     // Get user information from session
     Account account = (Account) session.getAttribute("account");
-    String displayName = (account != null) ? account.getUsername() : "Login"; // Get username or display "Login"
+    String displayName = (account != null) ? account.getUsername() : ""; // Get username or display "Login"
+    int isAdmin = (account != null) ? account.getIsAdmin() : 0; // Get isAdmin value or set to 0 if not logged in
 %>
 
 <!DOCTYPE html>
@@ -76,6 +77,9 @@
                             <li><a href="/traveltour/index.html">Home</a></li>
                             <li><a href="/traveltour/html/about.jsp">About</a></li>
                             <li><a href="/traveltour/html/booking.jsp">Booking</a></li>
+                            <% if (isAdmin == 1) { %> <!-- Check if user is an admin -->
+                            <li><a href="/traveltour/dashboard/manager.index.jsp">Manager</a></li> <!-- Show "Manager" link if admin -->
+                                <% } %>
                         </ul>
                     </div>
                     <div class="nav--mobile">
@@ -128,7 +132,14 @@
                 Trip Overview
             </div>
             <div class="order__contact-info">
-                <form action="/calculateBooking.jsp" method="POST" class="order__contact--form col-md-6">
+                <form action="/traveltour/confirmBooking" method="GET" class="order__contact--form col-md-6">
+                    <input type="hidden" name="tourCode" value="<%= request.getAttribute("tourCode") %>">
+                    <input type="hidden" name="title" value="<%= request.getAttribute("title") %>">
+                    <input type="hidden" name="price" value="<%= request.getAttribute("price") %>">
+                    <input type="hidden" name="duration" value="<%= request.getAttribute("duration") %>">
+                    <input type="hidden" name="travelTime" value="<%= request.getAttribute("travelTime") %>">
+                    <input type="hidden" name="imagePath" value="<%= request.getAttribute("imagePath") %>">
+                    <input type="hidden" name="departurePlace" value="<%= request.getAttribute("departurePlace") %>">
                     <p class="order__contact--title">Contact Information</p>
                     Full Name: <br> <input type="text" name="name" value="">
                     <br>
@@ -141,8 +152,10 @@
                     <p class="order__contact--title">Passenger</p>
                     Number of Passengers: <br> <input type="number" name="numPassengers" value="1">
                     <br>
+                    <input type="hidden" name="price" value="<%= request.getAttribute("price") %>">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+
                 <div class="order__order--info col-md-6">
                     <div class="group-checkout">
                         <div class="product">
@@ -153,44 +166,25 @@
                                 <p class="title"><%= request.getAttribute("title") %></p>
                             </div>
                         </div>
-                        <div class="go-tour">
-                            <div class="start">
-                                <i class="fal fa-calendar-minus"></i>
-                                <div class="start-content">
-                                    <h4>Start the trip</h4>
-                                    <p class="time"><%= request.getAttribute("startDate") %></p>
-                                    <p class="from"></p>
-                                </div>
-                            </div>
-                            <div class="end">
-                                <i class="fal fa-calendar-minus"></i>
-                                <div class="start-content">
-                                    <h4>End of trip</h4>
-                                    <p class="time"><%= request.getAttribute("endDate") %></p>
-                                    <p class="from"></p>
-                                </div>
-                            </div>
-                        </div>
                         <div class="detail">
                             <table>
                                 <thead>
                                     <tr>
                                         <th class="l1"><i class="fal fa-users me-1" id="AmoutPerson"></i>Passenger</th>
-                                        <th class="l2 text-right"><span class="total-booking"><%= request.getAttribute("totalPrice") %>₫</span></th>
+                                        <th class="l2 text-right"><span class="total-booking"></span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="detail">
-                                        <td>Pass</td>
-                                        <td class="t-price text-right"><%= request.getAttribute("price") %>₫</td>
+                                        <td style="font-size: 24px; color: red; font-weight: 700">Price</td>
+                                        <td style="font-size: 24px; color: red; font-weight: 700" class="t-price text-right"><%= request.getAttribute("price") %>₫</td>
                                     </tr>
                                     <tr class="total">
-                                        <td>Total Money</td>
-                                        <td class="t-price text-right"><%= request.getAttribute("totalPrice") %>₫</td>
+                                        <td></td>
+                                        <td class="t-price text-right"></td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <button class="btn btn-primary btn-order">Book now</button>
                         </div>
                     </div>                    
                 </div>

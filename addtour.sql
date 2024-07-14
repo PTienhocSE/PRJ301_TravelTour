@@ -67,3 +67,16 @@ CREATE TABLE Account (
 INSERT INTO Account (firstName, lastName, email, username, password, phone, isUser, isAdmin)
 VALUES ('Phuc Tien', 'Tran', 'tientpde180866@fpt.edu.vn', 'tientp', '123456', '386188917', 0, 1);
 
+USE PRJ301_TourTravel;
+CREATE TABLE Booking (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    tour_id INT NOT NULL,
+    start_day DATE NOT NULL,
+    num_passengers INT NOT NULL,
+	tour_code VARCHAR(20) NOT NULL,
+    total_money DECIMAL(18, 2) NOT NULL,
+    FOREIGN KEY (tour_id) REFERENCES Tour(id)
+);

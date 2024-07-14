@@ -32,6 +32,10 @@
         <servlet-name>confirmPaymentServlet</servlet-name>
         <servlet-class>controller.confirmPaymentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>bookingBillServlet</servlet-name>
+        <servlet-class>controller.bookingBillServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BookingServlet</servlet-name>
         <url-pattern>/booking</url-pattern>
@@ -63,5 +67,9 @@
     <servlet-mapping>
         <servlet-name>confirmPaymentServlet</servlet-name>
         <url-pattern>/confirmPaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>bookingBillServlet</servlet-name>
+        <url-pattern>/bookingbill</url-pattern>
     </servlet-mapping>
 </web-app>
